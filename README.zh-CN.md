@@ -84,12 +84,12 @@ rerank模型：`gte-reranker-modernbert-baseRAG/Rerank`
 
 ```
 https://modelscope.cn/models/ZhipuAI/GLM-4.5-FP8
-https://modelscope.cn/models/Qwen/Qwen2.5-Coder-32B-Instruct
-https://modelscope.cn/models/deepseek-ai/DeepSeek-Coder-V2-Lite-Base
-https://modelscope.cn/models/iic/gte-reranker-modernbert-base
-https://modelscope.cn/models/iic/gte-reranker-modernbert-base
 https://modelscope.cn/models/ZhipuAI/GLM-4.5-Air-FP8
+https://modelscope.cn/models/Qwen/Qwen2.5-Coder-32B-Instruct
 https://modelscope.cn/models/Qwen/Qwen3-Coder-30B-A3B-Instruct
+https://modelscope.cn/models/deepseek-ai/DeepSeek-Coder-V2-Lite-Base
+https://modelscope.cn/models/iic/gte-modernbert-base
+https://modelscope.cn/models/iic/gte-reranker-modernbert-base
 ```
 
 
