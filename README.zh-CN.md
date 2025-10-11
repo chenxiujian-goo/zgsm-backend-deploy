@@ -38,7 +38,7 @@ Costrict 后端部署工具是基于 Docker Compose 的企业级 AI 代码助手
 - CPU: Intel x64 架构，最低 16 核心
 - 内存: 最低 32GB RAM
 - 存储: 最低 512GB 可用存储空间
-- GPU: 支持 CUDA 的显卡（代码补全/分析推荐配置: 2×RTX 4090 或 1×A800，对话模型推荐配置: 8*H20）
+- GPU: 支持 CUDA 的显卡
 
 **软件要求**:
 - 操作系统: CentOS 7+ 或 Ubuntu 18.04+ (支持 WSL)
@@ -63,12 +63,14 @@ Costrict 后端部署工具是基于 Docker Compose 的企业级 AI 代码助手
 costrict的核心功能都依赖大语言模型，总共需要准备如下模型服务
 
 ```
-1. 对话模型(提供 /v1/chat/completions 接口）
-2. code review模型(提供和对话模型一样的 /v1/chat/completions 接口）
-3. embedding模型(提供/v1/embeddings 接口)
-4. rerank 模型(提供 /v1/rerank 接口)
-5. 补全模型(提供 /v1/completions 接口)
+1. 对话模型(提供完整的 http://chat_model_ip:chat_model_port/v1/chat/completions 接口)
+2. code review模型(提供完整的 http://review_model_ip:review_model_port/v1/chat/completions 接口)
+3. embedding模型(提供完整的 http://embedding_model_ip:embedding_model_port/v1/embeddings 接口)
+4. rerank 模型(提供完整的 http://rerank_model_ip:rerank_model_port/v1/rerank 接口)
+5. 补全模型(提供完整的 http://completion_model_ip:completion_model_port/v1/completions 接口)
 ```
+
+**注意**：提供并记录准确的模型名称、AIPKEY和上下文大小信息。用于部署服务时配置。
 
 推荐模型和下载地址：
 
@@ -96,7 +98,7 @@ https://modelscope.cn/models/iic/gte-reranker-modernbert-base
 
 ## 部署检查清单
 
-在开始部署之前，请同步打开查看 [部署检查清单](./docs/deploy-checklist.zh-CN.md) 中的内容；并在整个部署过程中补充完成所有项目，以确保最终部署成功。
+在开始部署之前，请同步打开查看 [部署检查清单](./docs/deploy-checklist.zh-CN.md) 中的内容；并在整个部署过程中检查完成所有项目，以确保最终部署成功。
 
 ## 快速开始
 

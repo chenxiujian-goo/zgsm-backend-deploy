@@ -38,7 +38,7 @@ Costrict Backend Deployment Tool is an enterprise-level AI code assistant backen
 - CPU: Intel x64 architecture, minimum 16 cores
 - Memory: Minimum 32GB RAM
 - Storage: Minimum 512GB available storage space
-- GPU: CUDA-enabled graphics card (Recommended for code completion/analysis: 2×RTX 4090 or 1×A800, Recommended for chat model: 8*H20)
+- GPU: CUDA-enabled graphics card
 
 **Software Requirements**:
 - Operating System: CentOS 7+ or Ubuntu 18.04+ (WSL supported)
@@ -63,12 +63,14 @@ Costrict Backend Deployment Tool is an enterprise-level AI code assistant backen
 The core functions of costrict all depend on large language models, and the following model services need to be prepared in total:
 
 ```
-1. Chat model (providing /v1/chat/completions interface)
-2. Code review model (providing the same /v1/chat/completions interface as the chat model)
-3. Embedding model (providing /v1/embeddings interface)
-4. Rerank model (providing /v1/rerank interface)
-5. Completion model (providing /v1/completions interface)
+1. Chat model (providing complete http://chat_model_ip:chat_model_port/v1/chat/completions interface)
+2. Code review model (providing complete http://review_model_ip:review_model_port/v1/chat/completions interface)
+3. Embedding model (providing complete http://embedding_model_ip:embedding_model_port/v1/embeddings interface)
+4. Rerank model (providing complete http://rerank_model_ip:rerank_model_port/v1/rerank interface)
+5. Completion model (providing complete http://completion_model_ip:completion_model_port/v1/completions interface)
 ```
+
+**Note**: Provide and record accurate model names, APIKEYs, and context size information. Used for configuration during service deployment.
 
 Recommended models and download addresses:
 

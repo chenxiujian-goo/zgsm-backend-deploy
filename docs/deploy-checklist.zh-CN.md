@@ -79,7 +79,7 @@
 - **embedding模型**：`gte-modernbert-baseRAG/Embedding`
 - **rerank模型**：`gte-reranker-modernbert-baseRAG/Rerank`
 
-**注意**：模型是否存在密钥、APIKEY和上下文大小等限制
+**注意**：确认模型的命令名称、APIKEY和上下文大小等信息是否准确并记录
 
 
 
