@@ -391,26 +391,14 @@ services:
   cotun:
     image: {{IMAGE_COTUN}}
     restart: always
-    command: ["server", "--reverse", "--port", "8080", "--authfile", "/cotun/users.json"]
+    command: ["--reverse", "--port", "8080", "--authfile", "/cotun/users.json"]
     environment:
       TZ: "Asia/Shanghai"
     volumes:
       - ./cotun/users.json:/cotun/users.json
     ports:
       - "{{PORT_COTUN}}:8080/tcp"
-    networks:
-      - shenma
-
-  tunnel-manager:
-    image: {{IMAGE_TUNNEL_MANAGER}}
-    restart: always
-    environment:
-      TZ: "Asia/Shanghai"
-    ports:
-      - "{{PORT_TUNNEL_MANAGER}}:8080"
-    volumes:
-      - ./tunnel-manager/config.yaml:/config.yaml
-      - ./tunnel-manager/data:/data
+      - "7890:7890/tcp"
     networks:
       - shenma
 

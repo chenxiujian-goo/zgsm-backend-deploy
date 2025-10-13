@@ -67,7 +67,6 @@ validate_environment() {
         "apisix-casdoor.sh"
         "apisix-chatgpt.sh"
         "apisix-chatrag.sh"
-        "apisix-cli-tools.sh"
         "apisix-codereview.sh"
         "apisix-completion-v2.sh"
         "apisix-costrict-apps.sh"
@@ -78,7 +77,6 @@ validate_environment() {
         "apisix-issue.sh"
         "apisix-oidc-auth.sh"
         "apisix-quota-manager.sh"
-        "apisix-tunnel-manager.sh"
     )
 
     [[ -d "$BASE_DIR" ]] || {
@@ -216,7 +214,6 @@ main() {
         "apisix-casdoor.sh"
         "apisix-chatgpt.sh"
         "apisix-chatrag.sh"
-        "apisix-cli-tools.sh"
         "apisix-codereview.sh"
         "apisix-completion-v2.sh"
         "apisix-costrict-apps.sh"
