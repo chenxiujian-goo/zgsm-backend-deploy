@@ -1,6 +1,6 @@
 app:
   PEDESTAL_SERVER:
-    server_url: "{{AI_GATEWAY_ADDR}}"
+    server_url: "http://higress:8080/v1/chat/completions"
     api_key: "{{CHAT_APIKEY}}"
 celery:
   broker_url: "redis://redis:6379/0"
