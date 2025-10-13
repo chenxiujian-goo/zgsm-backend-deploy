@@ -32,13 +32,51 @@ Costrict Backend Deployment Tool is an enterprise-level AI code assistant backen
 
 ## System Requirements
 
+### Model Requirements
+
+The core functions of costrict all depend on large language models, and the following model services need to be prepared in total:
+
+```
+1. Chat model (providing complete http://chat_model_ip:chat_model_port/v1/chat/completions interface)
+2. Code review model (providing complete http://review_model_ip:review_model_port/v1/chat/completions interface)
+3. Embedding model (providing complete http://embedding_model_ip:embedding_model_port/v1/embeddings interface)
+4. Rerank model (providing complete http://rerank_model_ip:rerank_model_port/v1/rerank interface)
+5. Completion model (providing complete http://completion_model_ip:completion_model_port/v1/completions interface)
+```
+
+**Note**: Provide and record accurate model names, APIKEYs, and context size information. Used for configuration during service deployment.
+
+Recommended models and download addresses:
+
+Chat model: `GLM-4.5-FP8`, `GLM-4.5-106B-A12B-FP8`
+
+Code review model: `Qwen2.5-Coder-32B-Instruct`
+
+Completion model: `DeepSeek-Coder-V2-Lite-Base`
+
+Embedding model: `gte-modernbert-baseRAG/Embedding`
+
+Rerank model: `gte-reranker-modernbert-baseRAG/Rerank`
+
+Download addresses:
+
+```
+https://modelscope.cn/models/ZhipuAI/GLM-4.5-FP8
+https://modelscope.cn/models/ZhipuAI/GLM-4.5-Air-FP8
+https://modelscope.cn/models/Qwen/Qwen2.5-Coder-32B-Instruct
+https://modelscope.cn/models/Qwen/Qwen3-Coder-30B-A3B-Instruct
+https://modelscope.cn/models/deepseek-ai/DeepSeek-Coder-V2-Lite-Base
+https://modelscope.cn/models/iic/gte-modernbert-base
+https://modelscope.cn/models/iic/gte-reranker-modernbert-base
+```
+
 ### Self-deployed Model Instance Environment
 
 **Hardware Requirements**:
 - CPU: Intel x64 architecture, minimum 16 cores
 - Memory: Minimum 32GB RAM
 - Storage: Minimum 512GB available storage space
-- GPU: CUDA-enabled graphics card (Recommended for code completion/analysis: 2×RTX 4090 or 1×A800, Recommended for chat model: 8*H20)
+- GPU: CUDA-enabled graphics card
 
 **Software Requirements**:
 - Operating System: CentOS 7+ or Ubuntu 18.04+ (WSL supported)
@@ -55,46 +93,12 @@ Costrict Backend Deployment Tool is an enterprise-level AI code assistant backen
 
 **Software Requirements**:
 - Operating System: CentOS 7+ or Ubuntu 18.04+
-- Container Runtime: Docker 20.10+
+- Container Runtime: Docker 20.10+ (refer to [Offline Docker Installation](./how-to-install-docker-offline.md) for offline installation)
 - Orchestration Tool: Docker Compose 2.0+
-
-### Model Requirements
-
-The core functions of costrict all depend on large language models, and the following model services need to be prepared in total:
-
-```
-1. Chat model (providing /v1/chat/completions interface)
-2. Code review model (providing the same /v1/chat/completions interface as the chat model)
-3. Embedding model (providing /v1/embeddings interface)
-4. Rerank model (providing /v1/rerank interface)
-5. Completion model (providing /v1/completions interface)
-```
-
-Recommended models and download addresses:
-
-Chat model: `GLM-4.5-FP8`, `GLM-4.5-106B-A12B-FP8`
-
-Code review model: `Qwen2.5-Coder-32B-Instruct`
-
-Completion model: `DeepSeek-Coder-V2-Lite-Base`
-
-Embedding model: `gte-modernbert-baseRAG/Embedding`
-
-Rerank model: `gte-reranker-modernbert-baseRAG/Rerank`
-
-```
-https://modelscope.cn/models/ZhipuAI/GLM-4.5-FP8
-https://modelscope.cn/models/ZhipuAI/GLM-4.5-Air-FP8
-https://modelscope.cn/models/Qwen/Qwen2.5-Coder-32B-Instruct
-https://modelscope.cn/models/Qwen/Qwen3-Coder-30B-A3B-Instruct
-https://modelscope.cn/models/deepseek-ai/DeepSeek-Coder-V2-Lite-Base
-https://modelscope.cn/models/iic/gte-modernbert-base
-https://modelscope.cn/models/iic/gte-reranker-modernbert-base
-```
 
 ## Deployment Checklist
 
-Before starting the deployment, please open and view the [Deployment Checklist](./docs/deploy-checklist.zh-CN.md) simultaneously, and complete all items throughout the deployment process to ensure a successful final deployment.
+Before starting the deployment, please **simultaneously open and view the [Deployment Checklist](./docs/deploy-checklist.md)** and **complete all items** throughout the deployment process to ensure a successful final deployment.
 
 ## Quick Start
 
@@ -149,7 +153,7 @@ Model Settings:
 | `RERANKER_MODEL` | Name of rerank model | - | ✅ |
 | `RERANKER_APIKEY` | APIKEY of rerank model, required if the model enables APIKEY authentication | - | ❌ |
 
-Note: Code completion, vector embedding, and rerank models are for internal use by Costrict only and will not appear in the user-selectable model list.
+**Note**: Code completion, vector embedding, and rerank models are for internal use by Costrict only and will not appear in the user-selectable model list.
 
 ### 3. Prepare Backend Service Images
 
@@ -201,7 +205,7 @@ The deployment process includes the following steps:
 
 ### AI Gateway Configuration (Higress)
 
-After deployment, access the Higress console at the following address:
+After deployment, access the Higress console at the following address to configure the `chat` and `code review` models:
 
 ```
 http://{COSTRICT_BACKEND}:{PORT_HIGRESS_CONTROL}
@@ -222,7 +226,7 @@ Configuration steps:
 
 Detailed configuration guide: [Higress Configuration Document](./docs/higress.zh-CN.md)
 
-### Identity Authentication System Configuration (Casdoor)
+### Optional: Identity Authentication System Configuration (Casdoor)
 
 Access the Casdoor management interface at the following address:
 

@@ -32,13 +32,51 @@ Costrict 后端部署工具是基于 Docker Compose 的企业级 AI 代码助手
 
 ## 系统要求
 
+### 模型要求
+
+costrict的核心功能都依赖大语言模型，总共需要准备如下模型服务
+
+```
+1. 对话模型(提供完整的 http://chat_model_ip:chat_model_port/v1/chat/completions 接口)
+2. code review模型(提供完整的 http://review_model_ip:review_model_port/v1/chat/completions 接口)
+3. embedding模型(提供完整的 http://embedding_model_ip:embedding_model_port/v1/embeddings 接口)
+4. rerank 模型(提供完整的 http://rerank_model_ip:rerank_model_port/v1/rerank 接口)
+5. 补全模型(提供完整的 http://completion_model_ip:completion_model_port/v1/completions 接口)
+```
+
+**注意**：提供并记录准确的模型名称、AIPKEY和上下文大小信息。用于部署服务时配置。
+
+推荐模型和下载地址：
+
+对话模型： `GLM-4.5-FP8`、`GLM-4.5-106B-A12B-FP8`
+
+code review模型：`Qwen2.5-Coder-32B-Instruct`
+
+补全模型：`DeepSeek-Coder-V2-Lite-Base`
+
+embedding模型：`gte-modernbert-baseRAG/Embedding`
+
+rerank模型：`gte-reranker-modernbert-baseRAG/Rerank`
+
+下载地址：
+
+```
+https://modelscope.cn/models/ZhipuAI/GLM-4.5-FP8
+https://modelscope.cn/models/ZhipuAI/GLM-4.5-Air-FP8
+https://modelscope.cn/models/Qwen/Qwen2.5-Coder-32B-Instruct
+https://modelscope.cn/models/Qwen/Qwen3-Coder-30B-A3B-Instruct
+https://modelscope.cn/models/deepseek-ai/DeepSeek-Coder-V2-Lite-Base
+https://modelscope.cn/models/iic/gte-modernbert-base
+https://modelscope.cn/models/iic/gte-reranker-modernbert-base
+```
+
 ### 自部署模型实例环境
 
 **硬件要求**:
 - CPU: Intel x64 架构，最低 16 核心
 - 内存: 最低 32GB RAM
 - 存储: 最低 512GB 可用存储空间
-- GPU: 支持 CUDA 的显卡（代码补全/分析推荐配置: 2×RTX 4090 或 1×A800，对话模型推荐配置: 8*H20）
+- GPU: 支持 CUDA 的显卡
 
 **软件要求**:
 - 操作系统: CentOS 7+ 或 Ubuntu 18.04+ (支持 WSL)
@@ -55,48 +93,14 @@ Costrict 后端部署工具是基于 Docker Compose 的企业级 AI 代码助手
 
 **软件要求**:
 - 操作系统: CentOS 7+ 或 Ubuntu 18.04+
-- Container Runtime: Docker 20.10+ (可参考[离线安装docker](./how-to-install-docker-offline.md)离线安装)
+- Container Runtime: Docker 20.10+ (可参考[离线安装docker](./how-to-install-docker-offline.zh-CN.md)离线安装)
 - 编排工具: Docker Compose 2.0+
-
-### 模型要求
-
-costrict的核心功能都依赖大语言模型，总共需要准备如下模型服务
-
-```
-1. 对话模型(提供 /v1/chat/completions 接口）
-2. code review模型(提供和对话模型一样的 /v1/chat/completions 接口）
-3. embedding模型(提供/v1/embeddings 接口)
-4. rerank 模型(提供 /v1/rerank 接口)
-5. 补全模型(提供 /v1/completions 接口)
-```
-
-推荐模型和下载地址：
-
-对话模型： `GLM-4.5-FP8`、`GLM-4.5-106B-A12B-FP8`
-
-code review模型：`Qwen2.5-Coder-32B-Instruct`
-
-补全模型：`DeepSeek-Coder-V2-Lite-Base`
-
-embedding模型：`gte-modernbert-baseRAG/Embedding`
-
-rerank模型：`gte-reranker-modernbert-baseRAG/Rerank`
-
-```
-https://modelscope.cn/models/ZhipuAI/GLM-4.5-FP8
-https://modelscope.cn/models/ZhipuAI/GLM-4.5-Air-FP8
-https://modelscope.cn/models/Qwen/Qwen2.5-Coder-32B-Instruct
-https://modelscope.cn/models/Qwen/Qwen3-Coder-30B-A3B-Instruct
-https://modelscope.cn/models/deepseek-ai/DeepSeek-Coder-V2-Lite-Base
-https://modelscope.cn/models/iic/gte-modernbert-base
-https://modelscope.cn/models/iic/gte-reranker-modernbert-base
-```
 
 
 
 ## 部署检查清单
 
-在开始部署之前，请同步打开查看 [部署检查清单](./docs/deploy-checklist.zh-CN.md) 中的内容；并在整个部署过程中补充完成所有项目，以确保最终部署成功。
+在开始部署之前，请 **同步打开查看 [部署检查清单](./docs/deploy-checklist.zh-CN.md)** 中的内容；并在整个部署过程中 **检查完成所有项目**，以确保最终部署成功。
 
 ## 快速开始
 
@@ -151,7 +155,7 @@ vim configure.sh
 | `RERANKER_MODEL` | rerank模型的名称 | - | ✅ |
 | `RERANKER_APIKEY` | rerank模型的APIKEY，如果模型启用了APIKEY鉴权，则需要设置 | - | ❌ |
 
-注：代码补全、向量嵌入、rerank模型仅供Costrict内部使用，不会出现在用户可选择的模型列表中。
+**注意**：代码补全、向量嵌入、rerank模型仅供Costrict内部使用，不会出现在用户可选择的模型列表中。
 
 ### 3. 准备后端服务镜像
 
@@ -203,7 +207,7 @@ bash deploy.sh
 
 ### AI 网关配置 (Higress)
 
-部署完成后，通过以下地址访问 Higress 控制台:
+部署完成后，通过以下地址访问 Higress 控制台，对 `对话` 和 `code review` 模型配置:
 
 ```
 http://{COSTRICT_BACKEND}:{PORT_HIGRESS_CONTROL}
@@ -224,7 +228,7 @@ http://{COSTRICT_BACKEND}:{PORT_HIGRESS_CONTROL}
 
 详细配置指南: [Higress 配置文档](./docs/higress.zh-CN.md)
 
-### 身份认证系统配置 (Casdoor)
+### 可选：身份认证系统配置 (Casdoor)
 
 通过以下地址访问 Casdoor 管理界面:
 

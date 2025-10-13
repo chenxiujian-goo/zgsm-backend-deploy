@@ -1,20 +1,21 @@
-# How to Install Docker and Docker Compose Offline
+# 如何离线安装docker 和docker compose
 
-## Docker
+## docker
 
-### Download Docker Package
+### 下载docker包
 
-Download from [Docker official website](https://download.docker.com/linux/static/stable/x86_64/), recommended version [20.10.24](https://download.docker.com/linux/static/stable/x86_64/docker-20.10.24.tgz)
+下载地址[docker官网](https://download.docker.com/linux/static/stable/x86_64/),推荐下载版本[20.10.24](https://download.docker.com/linux/static/stable/x86_64/docker-20.10.24.tgz)
 
-### Extract and Copy
+### 解压并转存
 
 ```bash
-# docker-20.10.24.tgz is the actual location of the downloaded file
+# docker-20.10.24.tgz 是文件下载的实际位置
 tar -zxvf docker-20.10.24.tgz -C /tmp
 cp /tmp/docker/* /usr/bin/
 ```
 
-### Register Docker Service
+
+### 注册docker服务
 
 vim /etc/systemd/system/docker.service
 
@@ -41,7 +42,8 @@ StartLimitInterval=60s
 WantedBy=multi-user.target
 ```
 
-### Start
+
+### 启动
 
 ```bash
 chmod 777 /etc/systemd/system/docker.service
@@ -50,7 +52,8 @@ systemctl enable docker
 systemctl start docker
 ```
 
-### Verify
+
+### 验证
 
 ```bash
 systemctl status docker
@@ -58,23 +61,23 @@ docker -v
 docker info
 ```
 
-## Docker Compose
+## docker compose
 
-### Download
+### 下载
 
-Download from [GitHub release](https://github.com/docker/compose/releases), recommended version: [v2.39.3](https://github.com/docker/compose/releases/download/v2.39.3/docker-compose-linux-x86_64)
+下载地址 [github release](https://github.com/docker/compose/releases) 建议版本:[v2.39.3](https://github.com/docker/compose/releases/download/v2.39.3/docker-compose-linux-x86_64)
 
-### Install
+### 安装
 
 ```bash
-# docker-compose-linux-x86_64 is the actual location of the downloaded file
+# docker-compose-linux-x86_64 是文件下载的实际位置
 sudo mv docker-compose-linux-x86_64 /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-cp -a /usr/local/bin/docker-compose  ~/.docker/cli-plugins/docker-compose # Add to docker subcommands
+cp -a /usr/local/bin/docker-compose  ~/.docker/cli-plugins/docker-compose # 添加到docker 子命令
 ```
 
-### Verify
+### 验证
 
 ```bash
 docker-compose 

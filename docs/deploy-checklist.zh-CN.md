@@ -4,6 +4,48 @@
 
 ## 一、部署前
 
+### 1.2 模型
+
+#### 1.2.1 模型GPU资源（推荐）
+
+- **对话模型**：4 * H20 或 4 * RTX4090
+- **code review模型**：2 * H20 或 2 * RTX4090
+- **补全模型**： 1 * H20 或 1 * RTX4090
+- **embedding模型**：0.5 * H20 或 * RTX4090
+- **rerank模型**：0.5 * H20 或 0.5 * RTX4090
+
+
+
+#### 1.2.2 模型列表（推荐）
+
+- **对话模型**： `GLM-4.5-FP8`、`GLM-4.5-106B-A12B-FP8`
+- **code review模型**：`Qwen2.5-Coder-32B-Instruct`
+- **补全模型**：`DeepSeek-Coder-V2-Lite-Base`
+- **embedding模型**：`gte-modernbert-baseRAG/Embedding`
+- **rerank模型**：`gte-reranker-modernbert-baseRAG/Rerank`
+
+**注意**：确认模型的命令名称、APIKEY和上下文大小等信息是否准确并记录
+
+
+
+#### 1.2.3 检查
+
+- [ ] **GPU资源检查**
+
+  ```bash
+  # 由模型部署方提供（AICP 或 用户）
+  ```
+
+- [ ] **模型接口**
+  
+  - [ ] **对话模型**: `/v1/chat/completions` 接口
+  - [ ] **code review模型**: 同对话 `/v1/chat/completions` 接口
+  - [ ] **补全模型**: `/v1/completions` 接口
+  - [ ] **embedding模型**: `/v1/embeddings` 接口
+  - [ ] **rerank模型**: `/v1/embeddings` 接口
+
+
+
 ### 1.1 后端服务器
 
 #### 1.1.1 硬件要求
@@ -59,48 +101,6 @@
 
 
 
-### 1.2 模型
-
-#### 1.2.1 模型GPU资源（推荐）
-
-- **对话模型**：4 * H20 或 4 * RTX4090
-- **code review模型**：2 * H20 或 2 * RTX4090
-- **补全模型**： 1 * H20 或 1 * RTX4090
-- **embedding模型**：0.5 * H20 或 * RTX4090
-- **rerank模型**：0.5 * H20 或 0.5 * RTX4090
-
-
-
-#### 1.2.2 模型列表（推荐）
-
-- **对话模型**： `GLM-4.5-FP8`、`GLM-4.5-106B-A12B-FP8`
-- **code review模型**：`Qwen2.5-Coder-32B-Instruct`
-- **补全模型**：`DeepSeek-Coder-V2-Lite-Base`
-- **embedding模型**：`gte-modernbert-baseRAG/Embedding`
-- **rerank模型**：`gte-reranker-modernbert-baseRAG/Rerank`
-
-**注意**：模型是否存在密钥、APIKEY和上下文大小等限制
-
-
-
-#### 1.2.3 检查
-
-- [ ] **GPU资源检查**
-
-  ```bash
-  # 由模型部署方提供（AICP 或 用户）
-  ```
-
-- [ ] **模型接口**
-  
-  - [ ] **对话模型**: `/v1/chat/completions` 接口
-  - [ ] **code review模型**: 同对话 `/v1/chat/completions` 接口
-  - [ ] **补全模型**: `/v1/completions` 接口
-  - [ ] **embedding模型**: `/v1/embeddings` 接口
-  - [ ] **rerank模型**: `/v1/embeddings` 接口
-
-
-
 ### 1.3 后端服务
 
 #### 1.3.1 部署项目
@@ -121,14 +121,6 @@
 
 
 
-#### 1.3.3 服务镜像要求
-
-镜像列表本地：`/opt/zgsm-backend-deploy/scripts/newest-images.list`
-
-镜像列表线上：https://github.com/zgsm-ai/zgsm-backend-deploy/blob/main/scripts/newest-images.list
-
-
-
 #### 1.3.4 检查
 
 - [ ] **项目检查**
@@ -143,14 +135,6 @@
 
   ```bash
   sudo ss -tlnp | grep -E ':(9180|9080|9091|9092|9093|2382|6379|5432|5003|9081|5000|8765|5001|9090|3000|9200|8080|8001|9001|5173|9003|9004|9005|9006|9007|9008|9009|9010|9011) '
-  ```
-
-  
-
-- [ ] **镜像检查**
-
-  ```bash
-  bash /opt/zgsm-backend-deploy/docker-download-images.sh
   ```
 
 
@@ -189,6 +173,23 @@
 
   ```bash
   cat /opt/zgsm-backend-deploy/configure.sh
+  ```
+
+
+
+### 2.2 后端镜像
+
+镜像列表本地：`/opt/zgsm-backend-deploy/scripts/newest-images.list`
+
+镜像列表线上：https://github.com/zgsm-ai/zgsm-backend-deploy/blob/main/scripts/newest-images.list
+
+
+#### 2.2.1 检查
+
+- [ ] **镜像检查**
+
+  ```bash
+  bash /opt/zgsm-backend-deploy/docker-download-images.sh
   ```
 
 
