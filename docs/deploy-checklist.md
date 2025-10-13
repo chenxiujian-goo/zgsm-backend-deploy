@@ -4,9 +4,9 @@ Used for checking and verifying the preparation before deployment, configuration
 
 ## I. Pre-Deployment
 
-### 1.2 Models
+### 1.1 Models
 
-#### 1.2.1 Model GPU Resources (Recommended)
+#### 1.1.1 Model GPU Resources (Recommended)
 
 - **Chat Model**: 4 * H20 or 4 * RTX4090
 - **Code Review Model**: 2 * H20 or 2 * RTX4090
@@ -14,7 +14,7 @@ Used for checking and verifying the preparation before deployment, configuration
 - **Embedding Model**: 0.5 * H20 or 1 * RTX4090
 - **Rerank Model**: 0.5 * H20 or 0.5 * RTX4090
 
-#### 1.2.2 Model List (Recommended)
+#### 1.1.2 Model List (Recommended)
 
 - **Chat Model**: `GLM-4.5-FP8`, `GLM-4.5-106B-A12B-FP8`
 - **Code Review Model**: `Qwen2.5-Coder-32B-Instruct`
@@ -24,7 +24,7 @@ Used for checking and verifying the preparation before deployment, configuration
 
 **Note**: Confirm and record the model command names, APIKEYs, and context sizes are accurate.
 
-#### 1.2.3 Checks
+#### 1.1.3 Checks
 
 - [ ] **GPU Resource Check**
 
@@ -40,22 +40,22 @@ Used for checking and verifying the preparation before deployment, configuration
   - [ ] **Embedding Model**: `/v1/embeddings` interface
   - [ ] **Rerank Model**: `/v1/embeddings` interface
 
-### 1.1 Backend Server
+### 1.2 Backend Server
 
-#### 1.1.1 Hardware Requirements
+#### 1.2.1 Hardware Requirements
 
 - **CPU**: Intel x64 architecture, minimum 16 cores
 - **Memory**: Minimum 32GB RAM
 - **Storage**: Minimum 512GB available storage space
 
-#### 1.1.2 Software Requirements
+#### 1.2.2 Software Requirements
 
 - **Operating System**: CentOS 7+ or Ubuntu 18.04+
 - **Container Runtime**: Docker 20.10+
 - **Orchestration Tool**: Docker Compose 2.0+
 - **Git**: Not required if obtaining [Deployment Project](https://github.com/zgsm-ai/zgsm-backend-deploy) offline
 
-#### 1.1.3 Checks
+#### 1.2.3 Checks
 
 - [ ] **Check CPU**
 
