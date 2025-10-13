@@ -102,6 +102,7 @@ services:
     volumes:
       - ./chat-rag/logs:/data/logs
       - ./chat-rag/chat-api.yaml:/app/etc/chat-api.yaml:ro
+      - ./chat-rag/rules.yaml:/app/etc/rules.yaml:ro
     depends_on:
       - codebase-querier
     networks:
