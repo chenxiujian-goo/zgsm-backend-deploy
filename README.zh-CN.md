@@ -32,32 +32,6 @@ Costrict 后端部署工具是基于 Docker Compose 的企业级 AI 代码助手
 
 ## 系统要求
 
-### 自部署模型实例环境
-
-**硬件要求**:
-- CPU: Intel x64 架构，最低 16 核心
-- 内存: 最低 32GB RAM
-- 存储: 最低 512GB 可用存储空间
-- GPU: 支持 CUDA 的显卡
-
-**软件要求**:
-- 操作系统: CentOS 7+ 或 Ubuntu 18.04+ (支持 WSL)
-- Container Runtime: Docker 20.10+
-- 编排工具: Docker Compose 2.0+
-- NVIDIA 驱动: nvidia-docker 支持
-
-### 第三方 API 服务环境
-
-**硬件要求**:
-- CPU: Intel x64 架构，最低 16 核心
-- 内存: 最低 32GB RAM
-- 存储: 最低 512GB 可用存储空间
-
-**软件要求**:
-- 操作系统: CentOS 7+ 或 Ubuntu 18.04+
-- Container Runtime: Docker 20.10+ (可参考[离线安装docker](./how-to-install-docker-offline.md)离线安装)
-- 编排工具: Docker Compose 2.0+
-
 ### 模型要求
 
 costrict的核心功能都依赖大语言模型，总共需要准备如下模型服务
@@ -84,6 +58,8 @@ embedding模型：`gte-modernbert-baseRAG/Embedding`
 
 rerank模型：`gte-reranker-modernbert-baseRAG/Rerank`
 
+下载地址：
+
 ```
 https://modelscope.cn/models/ZhipuAI/GLM-4.5-FP8
 https://modelscope.cn/models/ZhipuAI/GLM-4.5-Air-FP8
@@ -94,11 +70,37 @@ https://modelscope.cn/models/iic/gte-modernbert-base
 https://modelscope.cn/models/iic/gte-reranker-modernbert-base
 ```
 
+### 自部署模型实例环境
+
+**硬件要求**:
+- CPU: Intel x64 架构，最低 16 核心
+- 内存: 最低 32GB RAM
+- 存储: 最低 512GB 可用存储空间
+- GPU: 支持 CUDA 的显卡
+
+**软件要求**:
+- 操作系统: CentOS 7+ 或 Ubuntu 18.04+ (支持 WSL)
+- Container Runtime: Docker 20.10+
+- 编排工具: Docker Compose 2.0+
+- NVIDIA 驱动: nvidia-docker 支持
+
+### 第三方 API 服务环境
+
+**硬件要求**:
+- CPU: Intel x64 架构，最低 16 核心
+- 内存: 最低 32GB RAM
+- 存储: 最低 512GB 可用存储空间
+
+**软件要求**:
+- 操作系统: CentOS 7+ 或 Ubuntu 18.04+
+- Container Runtime: Docker 20.10+ (可参考[离线安装docker](./how-to-install-docker-offline.zh-CN.md)离线安装)
+- 编排工具: Docker Compose 2.0+
+
 
 
 ## 部署检查清单
 
-在开始部署之前，请同步打开查看 [部署检查清单](./docs/deploy-checklist.zh-CN.md) 中的内容；并在整个部署过程中检查完成所有项目，以确保最终部署成功。
+在开始部署之前，请 **同步打开查看 [部署检查清单](./docs/deploy-checklist.zh-CN.md)** 中的内容；并在整个部署过程中 **检查完成所有项目**，以确保最终部署成功。
 
 ## 快速开始
 
@@ -153,7 +155,7 @@ vim configure.sh
 | `RERANKER_MODEL` | rerank模型的名称 | - | ✅ |
 | `RERANKER_APIKEY` | rerank模型的APIKEY，如果模型启用了APIKEY鉴权，则需要设置 | - | ❌ |
 
-注：代码补全、向量嵌入、rerank模型仅供Costrict内部使用，不会出现在用户可选择的模型列表中。
+**注意**：代码补全、向量嵌入、rerank模型仅供Costrict内部使用，不会出现在用户可选择的模型列表中。
 
 ### 3. 准备后端服务镜像
 
@@ -205,7 +207,7 @@ bash deploy.sh
 
 ### AI 网关配置 (Higress)
 
-部署完成后，通过以下地址访问 Higress 控制台:
+部署完成后，通过以下地址访问 Higress 控制台，对 `对话` 和 `code review` 模型配置:
 
 ```
 http://{COSTRICT_BACKEND}:{PORT_HIGRESS_CONTROL}
@@ -226,7 +228,7 @@ http://{COSTRICT_BACKEND}:{PORT_HIGRESS_CONTROL}
 
 详细配置指南: [Higress 配置文档](./docs/higress.zh-CN.md)
 
-### 身份认证系统配置 (Casdoor)
+### 可选：身份认证系统配置 (Casdoor)
 
 通过以下地址访问 Casdoor 管理界面:
 

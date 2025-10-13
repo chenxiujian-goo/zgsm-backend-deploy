@@ -32,32 +32,6 @@ Costrict Backend Deployment Tool is an enterprise-level AI code assistant backen
 
 ## System Requirements
 
-### Self-deployed Model Instance Environment
-
-**Hardware Requirements**:
-- CPU: Intel x64 architecture, minimum 16 cores
-- Memory: Minimum 32GB RAM
-- Storage: Minimum 512GB available storage space
-- GPU: CUDA-enabled graphics card
-
-**Software Requirements**:
-- Operating System: CentOS 7+ or Ubuntu 18.04+ (WSL supported)
-- Container Runtime: Docker 20.10+
-- Orchestration Tool: Docker Compose 2.0+
-- NVIDIA Driver: nvidia-docker support
-
-### Third-party API Service Environment
-
-**Hardware Requirements**:
-- CPU: Intel x64 architecture, minimum 16 cores
-- Memory: Minimum 32GB RAM
-- Storage: Minimum 512GB available storage space
-
-**Software Requirements**:
-- Operating System: CentOS 7+ or Ubuntu 18.04+
-- Container Runtime: Docker 20.10+
-- Orchestration Tool: Docker Compose 2.0+
-
 ### Model Requirements
 
 The core functions of costrict all depend on large language models, and the following model services need to be prepared in total:
@@ -84,6 +58,8 @@ Embedding model: `gte-modernbert-baseRAG/Embedding`
 
 Rerank model: `gte-reranker-modernbert-baseRAG/Rerank`
 
+Download addresses:
+
 ```
 https://modelscope.cn/models/ZhipuAI/GLM-4.5-FP8
 https://modelscope.cn/models/ZhipuAI/GLM-4.5-Air-FP8
@@ -94,9 +70,35 @@ https://modelscope.cn/models/iic/gte-modernbert-base
 https://modelscope.cn/models/iic/gte-reranker-modernbert-base
 ```
 
+### Self-deployed Model Instance Environment
+
+**Hardware Requirements**:
+- CPU: Intel x64 architecture, minimum 16 cores
+- Memory: Minimum 32GB RAM
+- Storage: Minimum 512GB available storage space
+- GPU: CUDA-enabled graphics card
+
+**Software Requirements**:
+- Operating System: CentOS 7+ or Ubuntu 18.04+ (WSL supported)
+- Container Runtime: Docker 20.10+
+- Orchestration Tool: Docker Compose 2.0+
+- NVIDIA Driver: nvidia-docker support
+
+### Third-party API Service Environment
+
+**Hardware Requirements**:
+- CPU: Intel x64 architecture, minimum 16 cores
+- Memory: Minimum 32GB RAM
+- Storage: Minimum 512GB available storage space
+
+**Software Requirements**:
+- Operating System: CentOS 7+ or Ubuntu 18.04+
+- Container Runtime: Docker 20.10+ (refer to [Offline Docker Installation](./how-to-install-docker-offline.md) for offline installation)
+- Orchestration Tool: Docker Compose 2.0+
+
 ## Deployment Checklist
 
-Before starting the deployment, please open and view the [Deployment Checklist](./docs/deploy-checklist.zh-CN.md) simultaneously, and complete all items throughout the deployment process to ensure a successful final deployment.
+Before starting the deployment, please **simultaneously open and view the [Deployment Checklist](./docs/deploy-checklist.md)** and **complete all items** throughout the deployment process to ensure a successful final deployment.
 
 ## Quick Start
 
@@ -151,7 +153,7 @@ Model Settings:
 | `RERANKER_MODEL` | Name of rerank model | - | ✅ |
 | `RERANKER_APIKEY` | APIKEY of rerank model, required if the model enables APIKEY authentication | - | ❌ |
 
-Note: Code completion, vector embedding, and rerank models are for internal use by Costrict only and will not appear in the user-selectable model list.
+**Note**: Code completion, vector embedding, and rerank models are for internal use by Costrict only and will not appear in the user-selectable model list.
 
 ### 3. Prepare Backend Service Images
 
@@ -203,7 +205,7 @@ The deployment process includes the following steps:
 
 ### AI Gateway Configuration (Higress)
 
-After deployment, access the Higress console at the following address:
+After deployment, access the Higress console at the following address to configure the `chat` and `code review` models:
 
 ```
 http://{COSTRICT_BACKEND}:{PORT_HIGRESS_CONTROL}
@@ -224,7 +226,7 @@ Configuration steps:
 
 Detailed configuration guide: [Higress Configuration Document](./docs/higress.zh-CN.md)
 
-### Identity Authentication System Configuration (Casdoor)
+### Optional: Identity Authentication System Configuration (Casdoor)
 
 Access the Casdoor management interface at the following address:
 
