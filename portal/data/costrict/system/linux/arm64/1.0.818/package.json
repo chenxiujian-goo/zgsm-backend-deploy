@@ -1,7 +1,7 @@
 {
   "packageName": "system",
   "packageType": "conf",
-  "fileName": "system-spec.json",
+  "fileName": "share/system-spec.json",
   "os": "linux",
   "arch": "arm64",
   "size": 1551,

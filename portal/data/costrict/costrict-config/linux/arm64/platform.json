@@ -5,11 +5,11 @@
   "newest": {
     "versionId": {
       "major": 1,
-      "minor": 0,
-      "micro": 250802
+      "minor": 1,
+      "micro": 3
     },
-    "appUrl": "/costrict-config/linux/arm64/1.0.250802/costrict.json",
-    "infoUrl": "/costrict-config/linux/arm64/1.0.250802/package.json"
+    "appUrl": "/costrict-config/linux/arm64/1.1.3/costrict.json",
+    "infoUrl": "/costrict-config/linux/arm64/1.1.3/package.json"
   },
   "versions": [
     {
@@ -20,6 +20,15 @@
       },
       "appUrl": "/costrict-config/linux/arm64/1.0.250802/costrict.json",
       "infoUrl": "/costrict-config/linux/arm64/1.0.250802/package.json"
+    },
+    {
+      "versionId": {
+        "major": 1,
+        "minor": 1,
+        "micro": 3
+      },
+      "appUrl": "/costrict-config/linux/arm64/1.1.3/costrict.json",
+      "infoUrl": "/costrict-config/linux/arm64/1.1.3/package.json"
     }
   ]
 }
