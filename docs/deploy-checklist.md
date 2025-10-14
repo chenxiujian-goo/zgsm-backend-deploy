@@ -163,11 +163,11 @@ Online image list: https://github.com/zgsm-ai/zgsm-backend-deploy/blob/main/scri
   bash /opt/zgsm-backend-deploy/docker-download-images.sh
   ```
 
-### 2.2 Execute Script
+### 2.3 Execute Script
 
 Execution script: `/opt/zgsm-backend-deploy/deploy.sh`
 
-#### 2.2.1 Checks
+#### 2.3.1 Checks
 
 - [ ] **Check if file exists and has executable permissions**
 
@@ -175,13 +175,13 @@ Execution script: `/opt/zgsm-backend-deploy/deploy.sh`
   ls -l /opt/zgsm-backend-deploy | grep deploy.sh
   ```
 
-### 2.3 Service Configuration
+### 2.4 Service Configuration
 
-#### 2.3.1 AI Gateway Configuration
+#### 2.4.1 AI Gateway Configuration
 
 Local AI gateway configuration: `/opt/zgsm-backend-deploy/docs/higress.zh-CN.md`
 
-#### 2.3.2 Checks
+#### 2.4.2 Checks
 
 - [ ] **AI Gateway Configuration**
 
