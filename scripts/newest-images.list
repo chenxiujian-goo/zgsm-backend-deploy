@@ -18,6 +18,6 @@ IMAGE_REVIEW_MANAGER=zgsm/review-manager:1.1.6
 IMAGE_CREDIT_MANAGER=zgsm/credit-manager:v1.1.6
 IMAGE_QUOTA_MANAGER=zgsm/quota-manager:1.0.20
 IMAGE_CHAT_SERVER=zgsm/chat-server:1.2.0
-IMAGE_COTUN=zgsm/cotun:v1.2.13
+IMAGE_COTUN=zgsm/cotun:v1.2.16
 IMAGE_CODEBASE_QUERIER=zgsm/codebase-querier:v0.1.7
 IMAGE_CODEBASE_EMBEDDER=zgsm/codebase-embedder:v0.2.6
