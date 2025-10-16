@@ -15,15 +15,6 @@
     {
       "versionId": {
         "major": 1,
-        "minor": 0,
-        "micro": 250802
-      },
-      "appUrl": "/costrict-config/windows/amd64/1.0.250802/costrict.json",
-      "infoUrl": "/costrict-config/windows/amd64/1.0.250802/package.json"
-    },
-    {
-      "versionId": {
-        "major": 1,
         "minor": 1,
         "micro": 3
       },

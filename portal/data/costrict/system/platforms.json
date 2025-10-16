@@ -34,11 +34,11 @@
         "versionId": {
           "major": 1,
           "minor": 1,
-          "micro": 2
+          "micro": 3
         },
         "packageType": "conf",
         "fileName": "share/system-spec.json",
-        "size": 1921,
+        "size": 1566,
         "build": "",
         "description": "Client Subsystem Definition File"
       },
@@ -46,24 +46,12 @@
         {
           "versionId": {
             "major": 1,
-            "minor": 0,
-            "micro": 818
-          },
-          "packageType": "conf",
-          "fileName": "share/system-spec.json",
-          "size": 1553,
-          "build": "",
-          "description": "Client Subsystem Definition File"
-        },
-        {
-          "versionId": {
-            "major": 1,
             "minor": 1,
-            "micro": 2
+            "micro": 3
           },
           "packageType": "conf",
           "fileName": "share/system-spec.json",
-          "size": 1921,
+          "size": 1566,
           "build": "",
           "description": "Client Subsystem Definition File"
         }
@@ -76,11 +64,11 @@
         "versionId": {
           "major": 1,
           "minor": 1,
-          "micro": 2
+          "micro": 3
         },
         "packageType": "conf",
         "fileName": "share/system-spec.json",
-        "size": 1921,
+        "size": 1566,
         "build": "",
         "description": "Client Subsystem Definition File"
       },
@@ -88,24 +76,12 @@
         {
           "versionId": {
             "major": 1,
-            "minor": 0,
-            "micro": 818
-          },
-          "packageType": "conf",
-          "fileName": "share/system-spec.json",
-          "size": 1553,
-          "build": "",
-          "description": "Client Subsystem Definition File"
-        },
-        {
-          "versionId": {
-            "major": 1,
             "minor": 1,
-            "micro": 2
+            "micro": 3
           },
           "packageType": "conf",
           "fileName": "share/system-spec.json",
-          "size": 1921,
+          "size": 1566,
           "build": "",
           "description": "Client Subsystem Definition File"
         }
@@ -118,11 +94,11 @@
         "versionId": {
           "major": 1,
           "minor": 1,
-          "micro": 2
+          "micro": 3
         },
         "packageType": "conf",
         "fileName": "share/system-spec.json",
-        "size": 1921,
+        "size": 1566,
         "build": "",
         "description": "Client Subsystem Definition File"
       },
@@ -130,24 +106,12 @@
         {
           "versionId": {
             "major": 1,
-            "minor": 0,
-            "micro": 818
-          },
-          "packageType": "conf",
-          "fileName": "share/system-spec.json",
-          "size": 1551,
-          "build": "",
-          "description": "Client Subsystem Definition File"
-        },
-        {
-          "versionId": {
-            "major": 1,
             "minor": 1,
-            "micro": 2
+            "micro": 3
           },
           "packageType": "conf",
           "fileName": "share/system-spec.json",
-          "size": 1921,
+          "size": 1566,
           "build": "",
           "description": "Client Subsystem Definition File"
         }
@@ -160,11 +124,11 @@
         "versionId": {
           "major": 1,
           "minor": 1,
-          "micro": 2
+          "micro": 3
         },
         "packageType": "conf",
         "fileName": "share/system-spec.json",
-        "size": 1921,
+        "size": 1566,
         "build": "",
         "description": "Client Subsystem Definition File"
       },
@@ -172,24 +136,12 @@
         {
           "versionId": {
             "major": 1,
-            "minor": 0,
-            "micro": 818
-          },
-          "packageType": "conf",
-          "fileName": "share/system-spec.json",
-          "size": 1551,
-          "build": "",
-          "description": "Client Subsystem Definition File"
-        },
-        {
-          "versionId": {
-            "major": 1,
             "minor": 1,
-            "micro": 2
+            "micro": 3
           },
           "packageType": "conf",
           "fileName": "share/system-spec.json",
-          "size": 1921,
+          "size": 1566,
           "build": "",
           "description": "Client Subsystem Definition File"
         }
@@ -202,11 +154,11 @@
         "versionId": {
           "major": 1,
           "minor": 1,
-          "micro": 2
+          "micro": 3
         },
         "packageType": "conf",
         "fileName": "share/system-spec.json",
-        "size": 1921,
+        "size": 1566,
         "build": "",
         "description": "Client Subsystem Definition File"
       },
@@ -214,24 +166,12 @@
         {
           "versionId": {
             "major": 1,
-            "minor": 0,
-            "micro": 818
-          },
-          "packageType": "conf",
-          "fileName": "share/system-spec.json",
-          "size": 1553,
-          "build": "",
-          "description": "Client Subsystem Definition File"
-        },
-        {
-          "versionId": {
-            "major": 1,
             "minor": 1,
-            "micro": 2
+            "micro": 3
           },
           "packageType": "conf",
           "fileName": "share/system-spec.json",
-          "size": 1921,
+          "size": 1566,
           "build": "",
           "description": "Client Subsystem Definition File"
         }
@@ -244,11 +184,11 @@
         "versionId": {
           "major": 1,
           "minor": 1,
-          "micro": 2
+          "micro": 3
         },
         "packageType": "conf",
         "fileName": "share/system-spec.json",
-        "size": 1921,
+        "size": 1566,
         "build": "",
         "description": "Client Subsystem Definition File"
       },
@@ -256,24 +196,12 @@
         {
           "versionId": {
             "major": 1,
-            "minor": 0,
-            "micro": 818
-          },
-          "packageType": "conf",
-          "fileName": "share/system-spec.json",
-          "size": 1553,
-          "build": "",
-          "description": "Client Subsystem Definition File"
-        },
-        {
-          "versionId": {
-            "major": 1,
             "minor": 1,
-            "micro": 2
+            "micro": 3
           },
           "packageType": "conf",
           "fileName": "share/system-spec.json",
-          "size": 1921,
+          "size": 1566,
           "build": "",
           "description": "Client Subsystem Definition File"
         }
