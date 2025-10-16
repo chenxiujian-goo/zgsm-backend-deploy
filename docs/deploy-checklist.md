@@ -22,7 +22,7 @@ Used for checking and verifying the preparation before deployment, configuration
 - **Embedding Model**: `gte-modernbert-baseRAG/Embedding`
 - **Rerank Model**: `gte-reranker-modernbert-baseRAG/Rerank`
 
-**Note**: Confirm and record the model command names, APIKEYs, and context sizes are accurate.
+**Note**: Confirm and record the model `names`, `APIKEYs`, and `context lengths` are accurate.
 
 #### 1.1.3 Checks
 
