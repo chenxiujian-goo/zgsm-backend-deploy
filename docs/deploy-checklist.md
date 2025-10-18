@@ -8,11 +8,11 @@ Used for checking and verifying the preparation before deployment, configuration
 
 #### 1.1.1 Model GPU Resources (Recommended)
 
-- **Chat Model**: 4 * H20 or 4 * RTX4090
-- **Code Review Model**: 2 * H20 or 2 * RTX4090
-- **Completion Model**: 1 * H20 or 1 * RTX4090
-- **Embedding Model**: 0.5 * H20 or 1 * RTX4090
-- **Rerank Model**: 0.5 * H20 or 0.5 * RTX4090
+- **Chat Model**: `4 * H20` or `4 * RTX4090`
+- **Code Review Model**: `2 * H20` or `2 * RTX4090`
+- **Completion Model**: `1 * H20` or `1 * RTX4090`
+- **Embedding Model**: `0.5 * H20` or `0.5 * RTX4090`
+- **Rerank Model**: `0.5 * H20` or `0.5 * RTX4090`
 
 #### 1.1.2 Model List (Recommended)
 
@@ -22,7 +22,7 @@ Used for checking and verifying the preparation before deployment, configuration
 - **Embedding Model**: `gte-modernbert-baseRAG/Embedding`
 - **Rerank Model**: `gte-reranker-modernbert-baseRAG/Rerank`
 
-**Note**: Confirm and record the model `names`, `APIKEYs`, and `context lengths` are accurate.
+**Note**: Confirm and record the model `NAMES`, `APIKEYs`, and `CONTEXT LENGTHS` are accurate.
 
 #### 1.1.3 Checks
 
@@ -35,7 +35,7 @@ Used for checking and verifying the preparation before deployment, configuration
 - [ ] **Model Interfaces**
   
   - [ ] **Chat Model**: `/v1/chat/completions` interface
-  - [ ] **Code Review Model**: Same as chat `/v1/chat/completions` interface
+  - [ ] **Code Review Model**: `/v1/chat/completions` interface
   - [ ] **Completion Model**: `/v1/completions` interface
   - [ ] **Embedding Model**: `/v1/embeddings` interface
   - [ ] **Rerank Model**: `/v1/embeddings` interface
