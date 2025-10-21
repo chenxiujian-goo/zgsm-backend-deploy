@@ -252,7 +252,7 @@ Detailed configuration guide: [Casdoor Configuration Document](./docs/casdoor.zh
 
 ## Client Integration
 
-### VSCode Plugin Configuration
+### Costrict Plugin Configuration
 
 1. Install the Costrict VSCode extension
 2. Open the "Provider" page in the extension settings
@@ -262,6 +262,8 @@ Detailed configuration guide: [Casdoor Configuration Document](./docs/casdoor.zh
    Costrict Base URL: {COSTRICT_BACKEND_BASEURL}
    ```
 5. Click "Login Costrict" to complete authentication
+
+Detailed installation guide: [Costrict Download and Installation Documentation](https://costrict.ai/download) (includes `VSCode` and `JetBrains` IDE)
 
 **Service Access Address**:
 ```
