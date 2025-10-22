@@ -44,13 +44,13 @@ The core functions of costrict all depend on large language models, and the foll
 5. Completion model (providing complete http://completion_model_ip:completion_model_port/v1/completions interface)
 ```
 
-**Note**: Provide and record accurate model names, APIKEYs, and context size information. Used for configuration during service deployment.
+**Note**: Provide and record accurate `MODEL NAMES`, `APIKEYs`, and `CONTEXT LENGTHS` information. Used for configuration during service deployment.
 
 Recommended models and download addresses:
 
 Chat model: `GLM-4.5-FP8`, `GLM-4.5-106B-A12B-FP8`
 
-Code review model: `Qwen2.5-Coder-32B-Instruct`
+Code review model: `Qwen2.5-Coder-32B-Instruct`, `Qwen3.0-Coder-30B-A3B-Instruct`
 
 Completion model: `DeepSeek-Coder-V2-Lite-Base`
 

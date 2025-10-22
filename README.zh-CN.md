@@ -44,13 +44,13 @@ costrict的核心功能都依赖大语言模型，总共需要准备如下模型
 5. 补全模型(提供完整的 http://completion_model_ip:completion_model_port/v1/completions 接口)
 ```
 
-**注意**：提供并记录准确的模型名称、AIPKEY和上下文大小信息。用于部署服务时配置。
+**注意**：提供并记录准确的 `模型名称`、`APIKEY` 和 `上下文长度` 信息。用于部署服务时配置。
 
 推荐模型和下载地址：
 
 对话模型： `GLM-4.5-FP8`、`GLM-4.5-106B-A12B-FP8`
 
-code review模型：`Qwen2.5-Coder-32B-Instruct`
+code review模型：`Qwen2.5-Coder-32B-Instruct`、`Qwen3.0-Coder-30B-A3B-Instruct`
 
 补全模型：`DeepSeek-Coder-V2-Lite-Base`
 
