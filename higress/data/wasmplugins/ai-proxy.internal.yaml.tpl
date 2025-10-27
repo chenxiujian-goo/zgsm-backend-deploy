@@ -43,6 +43,8 @@ spec:
       type: ollama
     - failover:
         enabled: false
+      apiTokens:
+      - {{CHAT_APIKEY}}
       id: chatrag
       openaiCustomUrl: {{CHAT_BASEURL}}/v1
       openaiExtraCustomUrls: []
@@ -51,6 +53,8 @@ spec:
       type: openai
     - failover:
         enabled: false
+      apiTokens:
+      - {{CODEREVIEW_APIKEY}}
       id: codereview
       openaiCustomUrl: {{CODEREVIEW_BASEURL}}/v1
       openaiExtraCustomUrls: []

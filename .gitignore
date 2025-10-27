@@ -29,3 +29,5 @@ prometheus/prometheus.yml
 docker-compose.yml
 .cospec
 .roo
+portal/data/costrict/costrict-private.pem
+portal/data/costrict/costrict-public.key

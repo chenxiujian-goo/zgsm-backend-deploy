@@ -1,6 +1,6 @@
 apiVersion: v1
 data:
-  data: '{"name":"codereview","domains":[],"pathPredicate":{"matchType":"PRE","matchValue":"/","caseSensitive":false},"headerPredicates":[],"urlParamPredicates":[],"upstreams":[{"provider":"codereview","weight":100,"modelMapping":{}}],"modelPredicates":[{"matchType":"EQUAL","matchValue":"Qwen3-Coder-30B-A3B"}],"authConfig":{"enabled":false},"fallbackConfig":{"enabled":false}}'
+  data: '{"name":"codereview","domains":[],"pathPredicate":{"matchType":"PRE","matchValue":"/","caseSensitive":false},"headerPredicates":[],"urlParamPredicates":[],"upstreams":[{"provider":"codereview","weight":100,"modelMapping":{}}],"modelPredicates":[{"matchType":"EQUAL","matchValue":"{{CODEREVIEW_MODEL}}"}],"authConfig":{"enabled":false},"fallbackConfig":{"enabled":false}}'
 kind: ConfigMap
 metadata:
   creationTimestamp: "2025-09-06T03:15:14Z"

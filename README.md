@@ -34,7 +34,7 @@ Costrict Backend Deployment Tool is an enterprise-level AI code assistant backen
 
 ### Model Requirements
 
-The core functions of costrict all depend on large language models, and the following model services need to be prepared in total:
+The core functions of costrict all depend on large language models, and the following model services need to be **prepared in total**:
 
 ```
 1. Chat model (providing complete http://chat_model_ip:chat_model_port/v1/chat/completions interface)
@@ -46,19 +46,19 @@ The core functions of costrict all depend on large language models, and the foll
 
 **Note**: Provide and record accurate `MODEL NAMES`, `APIKEYs`, and `CONTEXT LENGTHS` information. Used for configuration during service deployment.
 
-Recommended models and download addresses:
+**Recommended Models** and **Download Addresses**:
 
-Chat model: `GLM-4.5-FP8`, `GLM-4.5-106B-A12B-FP8`
+- **Chat Model**: `GLM-4.5-FP8`, `GLM-4.5-106B-A12B-FP8`
 
-Code review model: `Qwen2.5-Coder-32B-Instruct`, `Qwen3.0-Coder-30B-A3B-Instruct`
+- **Code Review Model**: `Qwen2.5-Coder-32B-Instruct`, `Qwen3.0-Coder-30B-A3B-Instruct`
 
-Completion model: `DeepSeek-Coder-V2-Lite-Base`
+- **Completion Model**: `DeepSeek-Coder-V2-Lite-Base`
 
-Embedding model: `gte-modernbert-baseRAG/Embedding`
+- **Embedding Model**: `gte-modernbert-baseRAG/Embedding`
 
-Rerank model: `gte-reranker-modernbert-baseRAG/Rerank`
+- **Rerank Model**: `gte-reranker-modernbert-baseRAG/Rerank`
 
-Download addresses:
+- **Download Addresses**:
 
 ```
 https://modelscope.cn/models/ZhipuAI/GLM-4.5-FP8
@@ -70,31 +70,31 @@ https://modelscope.cn/models/iic/gte-modernbert-base
 https://modelscope.cn/models/iic/gte-reranker-modernbert-base
 ```
 
-### Self-deployed Model Instance Environment
+**Recommended Model Deployment Resources**:
+
+- **Chat Model**: `4 * H20` or `4 * RTX4090`
+
+- **Code Review Model**: `2 * H20` or `2 * RTX4090`
+
+- **Completion Model**: `1 * H20` or `1 * RTX4090`
+
+- **Embedding Model**: `0.5 * H20` or `0.5 * RTX4090`
+
+- **Rerank Model**: `0.5 * H20` or `0.5 * RTX4090`
+
+
+### Self-deployed Backend Service Instance Environment
 
 **Hardware Requirements**:
 - CPU: Intel x64 architecture, minimum 16 cores
 - Memory: Minimum 32GB RAM
 - Storage: Minimum 512GB available storage space
-- GPU: CUDA-enabled graphics card
 
 **Software Requirements**:
 - Operating System: CentOS 7+ or Ubuntu 18.04+ (WSL supported)
-- Container Runtime: Docker 20.10+
-- Orchestration Tool: Docker Compose 2.0+
-- NVIDIA Driver: nvidia-docker support
-
-### Third-party API Service Environment
-
-**Hardware Requirements**:
-- CPU: Intel x64 architecture, minimum 16 cores
-- Memory: Minimum 32GB RAM
-- Storage: Minimum 512GB available storage space
-
-**Software Requirements**:
-- Operating System: CentOS 7+ or Ubuntu 18.04+
 - Container Runtime: Docker 20.10+ (refer to [Offline Docker Installation](./how-to-install-docker-offline.md) for offline installation)
 - Orchestration Tool: Docker Compose 2.0+
+
 
 ## Deployment Checklist
 

@@ -34,7 +34,7 @@ Costrict 后端部署工具是基于 Docker Compose 的企业级 AI 代码助手
 
 ### 模型要求
 
-costrict的核心功能都依赖大语言模型，总共需要准备如下模型服务
+costrict的核心功能都依赖大语言模型，总共需要 **准备如下模型服务**
 
 ```
 1. 对话模型(提供完整的 http://chat_model_ip:chat_model_port/v1/chat/completions 接口)
@@ -46,19 +46,19 @@ costrict的核心功能都依赖大语言模型，总共需要准备如下模型
 
 **注意**：提供并记录准确的 `模型名称`、`APIKEY` 和 `上下文长度` 信息。用于部署服务时配置。
 
-推荐模型和下载地址：
+**推荐模型** 和 **下载地址**：
 
-对话模型： `GLM-4.5-FP8`、`GLM-4.5-106B-A12B-FP8`
+- **对话模型**： `GLM-4.5-FP8`、`GLM-4.5-106B-A12B-FP8`
 
-code review模型：`Qwen2.5-Coder-32B-Instruct`、`Qwen3.0-Coder-30B-A3B-Instruct`
+- **code review模型**：`Qwen2.5-Coder-32B-Instruct`、`Qwen3.0-Coder-30B-A3B-Instruct`
 
-补全模型：`DeepSeek-Coder-V2-Lite-Base`
+- **补全模型**：`DeepSeek-Coder-V2-Lite-Base`
 
-embedding模型：`gte-modernbert-baseRAG/Embedding`
+- **embedding模型**：`gte-modernbert-baseRAG/Embedding`
 
-rerank模型：`gte-reranker-modernbert-baseRAG/Rerank`
+- **rerank模型**：`gte-reranker-modernbert-baseRAG/Rerank`
 
-下载地址：
+- **下载地址**：
 
 ```
 https://modelscope.cn/models/ZhipuAI/GLM-4.5-FP8
@@ -70,29 +70,28 @@ https://modelscope.cn/models/iic/gte-modernbert-base
 https://modelscope.cn/models/iic/gte-reranker-modernbert-base
 ```
 
-### 自部署模型实例环境
+**推荐模型部署资源**：
+
+- **对话模型**：`4 * H20` 或 `4 * RTX4090`
+
+- **code review模型**：`2 * H20` 或 `2 * RTX4090`
+
+- **补全模型**：`1 * H20` 或 `1 * RTX4090`
+
+- **embedding模型**：`0.5 * H20` 或 `0.5 * RTX4090`
+
+- **rerank模型**：`0.5 * H20` 或 `0.5 * RTX4090`
+
+
+### 自部署后端服务实例环境
 
 **硬件要求**:
 - CPU: Intel x64 架构，最低 16 核心
 - 内存: 最低 32GB RAM
 - 存储: 最低 512GB 可用存储空间
-- GPU: 支持 CUDA 的显卡
 
 **软件要求**:
 - 操作系统: CentOS 7+ 或 Ubuntu 18.04+ (支持 WSL)
-- Container Runtime: Docker 20.10+
-- 编排工具: Docker Compose 2.0+
-- NVIDIA 驱动: nvidia-docker 支持
-
-### 第三方 API 服务环境
-
-**硬件要求**:
-- CPU: Intel x64 架构，最低 16 核心
-- 内存: 最低 32GB RAM
-- 存储: 最低 512GB 可用存储空间
-
-**软件要求**:
-- 操作系统: CentOS 7+ 或 Ubuntu 18.04+
 - Container Runtime: Docker 20.10+ (可参考[离线安装docker](./how-to-install-docker-offline.zh-CN.md)离线安装)
 - 编排工具: Docker Compose 2.0+
 
