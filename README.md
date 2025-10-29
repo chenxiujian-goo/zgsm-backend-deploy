@@ -1,4 +1,4 @@
-# Costrict Backend Deployment Tool
+# CoStrict Backend Deployment Tool
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Docker](https://img.shields.io/badge/docker-required-blue.svg)](https://docs.docker.com/get-docker/)
@@ -6,7 +6,7 @@
 
 ## Project Overview
 
-Costrict Backend Deployment Tool is an enterprise-level AI code assistant backend service deployment solution based on Docker Compose. This project provides a complete microservice architecture, including core components such as AI gateway, identity authentication, code analysis, and chat services, supporting both private deployment and cloud service modes.
+CoStrict Backend Deployment Tool is an enterprise-level AI code assistant backend service deployment solution based on Docker Compose. This project provides a complete microservice architecture, including core components such as AI gateway, identity authentication, code analysis, and chat services, supporting both private deployment and cloud service modes.
 
 ### Core Features
 
@@ -21,7 +21,7 @@ Costrict Backend Deployment Tool is an enterprise-level AI code assistant backen
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 │  VSCode Plugin  │────│   API Gateway   │────│ Backend Services│
-│   (Costrict)    │    │ (Apache APISIX) │    │ (Microservices) │
+│   (CoStrict)    │    │ (Apache APISIX) │    │ (Microservices) │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
                                │                        │
                         ┌─────────────────┐    ┌─────────────────┐
@@ -34,7 +34,7 @@ Costrict Backend Deployment Tool is an enterprise-level AI code assistant backen
 
 ### Model Requirements
 
-The core functions of costrict all depend on large language models, and the following model services need to be **prepared in total**:
+The core functions of CoStrict all depend on large language models, and the following model services need to be **prepared in total**:
 
 ```
 1. Chat model (providing complete http://chat_model_ip:chat_model_port/v1/chat/completions interface)
@@ -183,15 +183,15 @@ Model Settings:
 | `RERANKER_MODEL` | Name of rerank model | - | ✅ |
 | `RERANKER_APIKEY` | APIKEY of rerank model, required if the model enables APIKEY authentication | - | ❌ |
 
-**Note**: Code completion, vector embedding, and rerank models are for internal use by Costrict only and will not appear in the user-selectable model list.
+**Note**: `Code completion`, `vector embedding`, and `rerank` models are for internal use by CoStrict only and will not appear in the user-selectable model list.
 
 ### 3. Prepare Backend Service Images
 
-Costrict backend images are mainly stored in the docker hub image repository docker.io/zgsm.
+CoStrict backend images are mainly stored in the docker hub image repository docker.io/zgsm.
 
 Before deployment, you need to ensure that the images required for backend deployment can be pulled from the image repository normally.
 
-The images required by Costrict backend can be found in the scripts/newest-images.list file for a complete list.
+The images required by CoStrict backend can be found in the scripts/newest-images.list file for a complete list.
 
 You can get this list file from the cloud with the following command.
 
@@ -207,7 +207,7 @@ However, if the deployment server cannot access the docker hub image repository,
 bash scripts/load-images.sh -l /root/images
 ```
 
-In addition to pulling and exporting image files from the docker image repository, you can also download all image files required for Costrict backend deployment from Baidu Netdisk.
+In addition to pulling and exporting image files from the docker image repository, you can also download all image files required for CoStrict backend deployment from Baidu Netdisk.
 
 Netdisk address:
 
@@ -282,7 +282,7 @@ Detailed configuration guide: [Casdoor Configuration Document](./docs/casdoor.zh
 
 ## Client Integration
 
-### Costrict Plugin Configuration
+### CoStrict Plugin Configuration
 
 1. Install the Costrict VSCode extension
 2. Open the "Provider" page in the extension settings
@@ -293,7 +293,7 @@ Detailed configuration guide: [Casdoor Configuration Document](./docs/casdoor.zh
    ```
 5. Click "Login Costrict" to complete authentication
 
-Detailed installation guide: [Costrict Download and Installation Documentation](https://costrict.ai/download) (includes `VSCode` and `JetBrains` IDE)
+Detailed installation guide: [CoStrict Download and Installation Documentation](https://costrict.ai/download) (includes `VSCode` and `JetBrains` IDE)
 
 **Service Access Address**:
 ```
@@ -431,4 +431,4 @@ This project is open source under the Apache 2.0 license. See the [LICENSE](LICE
 
 ---
 
-**Costrict** - Let AI power your code development journey
+**CoStrict** - Let AI power your code development journey

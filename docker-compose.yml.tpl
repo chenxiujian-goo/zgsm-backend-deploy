@@ -322,7 +322,7 @@ services:
       # 模型名称
       OPENAI_MODEL: "{{COMPLETION_MODEL}}"
       # 认证头 Authorization 的值
-      OPENAI_MODEL_AUTHORIZATION: "{{COMPLETION_APIKEY}}"
+      OPENAI_MODEL_AUTHORIZATION: "Bearer {{COMPLETION_APIKEY}}"
     depends_on:
       - redis
     networks:

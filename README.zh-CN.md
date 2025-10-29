@@ -1,4 +1,4 @@
-# Costrict 后端部署工具
+# CoStrict 后端部署工具
 
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 [![Docker](https://img.shields.io/badge/docker-required-blue.svg)](https://docs.docker.com/get-docker/)
@@ -6,7 +6,7 @@
 
 ## 项目概述
 
-Costrict 后端部署工具是基于 Docker Compose 的企业级 AI 代码助手后端服务部署解决方案。该项目提供了完整的微服务架构，包含 AI 网关、身份认证、代码分析、聊天服务等核心组件，支持私有化部署和云端服务两种模式。
+CoStrict 后端部署工具是基于 Docker Compose 的企业级 AI 代码助手后端服务部署解决方案。该项目提供了完整的微服务架构，包含 AI 网关、身份认证、代码分析、聊天服务等核心组件，支持私有化部署和云端服务两种模式。
 
 ### 核心特性
 
@@ -21,7 +21,7 @@ Costrict 后端部署工具是基于 Docker Compose 的企业级 AI 代码助手
 ```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 │   VSCode 插件    │────│   API Gateway   │────│   后端服务群     │
-│   (Costrict)    │    │  (Apache APISIX) │    │  (Microservices) │
+│   (CoStrict)    │    │  (Apache APISIX) │    │  (Microservices) │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
                               │                        │
                        ┌─────────────────┐    ┌─────────────────┐
@@ -34,7 +34,7 @@ Costrict 后端部署工具是基于 Docker Compose 的企业级 AI 代码助手
 
 ### 模型要求
 
-costrict的核心功能都依赖大语言模型，总共需要 **准备如下模型服务**
+CoStrict的核心功能都依赖大语言模型，总共需要 **准备如下模型服务**
 
 ```
 1. 对话模型(提供完整的 http://chat_model_ip:chat_model_port/v1/chat/completions 接口)
@@ -184,15 +184,15 @@ vim configure.sh
 | `RERANKER_MODEL` | rerank模型的名称 | - | ✅ |
 | `RERANKER_APIKEY` | rerank模型的APIKEY，如果模型启用了APIKEY鉴权，则需要设置 | - | ❌ |
 
-**注意**：代码补全、向量嵌入、rerank模型仅供Costrict内部使用，不会出现在用户可选择的模型列表中。
+**注意**：`代码补全`、`向量嵌入`、`rerank`模型仅供CoStrict内部使用，不会出现在用户可选择的模型列表中。
 
 ### 3. 准备后端服务镜像
 
-Costrict后端镜像主要保存在docker hub镜像仓库docker.io/zgsm中。
+CoStrict后端镜像主要保存在docker hub镜像仓库docker.io/zgsm中。
 
 在执行部署前，需要先保证后端部署需要的镜像，可以正常从镜像仓库拉取。
 
-Costrict后端需要的镜像，可以查看scripts/newest-images.list文件获取完整列表。
+CoStrict后端需要的镜像，可以查看scripts/newest-images.list文件获取完整列表。
 
 通过下述命令可以从云端获取该列表文件。
 
@@ -208,7 +208,7 @@ bash scripts/get-images-list.sh -o scripts
 bash scripts/load-images.sh -l /root/images
 ```
 
-除了从docker镜像仓库拉取并导出镜像文件，还可以从百度网盘下载Costrict后端部署需要的所有镜像文件。
+除了从docker镜像仓库拉取并导出镜像文件，还可以从百度网盘下载CoStrict后端部署需要的所有镜像文件。
 
 网盘地址：
 
@@ -283,7 +283,7 @@ http://{COSTRICT_BACKEND}:{PORT_CASDOOR}
 
 ## 客户端集成
 
-### Costrict 插件配置
+### CoStrict 插件配置
 
 1. 安装 Costrict VSCode 扩展
 2. 打开扩展设置中的"提供商"页面
@@ -294,7 +294,7 @@ http://{COSTRICT_BACKEND}:{PORT_CASDOOR}
    ```
 5. 点击"登录 Costrict"完成身份验证
 
-详细安装指南：[Costrict 下载安装文档](https://costrict.ai/download) (含 `VSCode` 和 `JetBrains` IDE)
+详细安装指南：[CoStrict 下载安装文档](https://costrict.ai/download) (含 `VSCode` 和 `JetBrains` IDE)
 
 **服务访问地址**:
 ```
@@ -432,4 +432,4 @@ docker-compose logs postgres
 
 ---
 
-**Costrict** - 让 AI 助力您的代码开发之旅
+**CoStrict** - 让 AI 助力您的代码开发之旅
