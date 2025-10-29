@@ -87,7 +87,7 @@ https://modelscope.cn/models/iic/gte-reranker-modernbert-base
 - If you have resources, to try the complete functionality, please ensure **all models meet the above requirements when deployed**.
 - If you don't have resources, we can provide two options:
   - Use our officially released CoStrict directly without additional deployment to experience all CoStrict features.
-  - We provide **time-limited** `conversation` and `code review` model interfaces for short-term experience of CoStrict's main `AGENT` and `CODE REVIEW` features.
+  - We provide **time-limited** online `conversation` and `code review` model interfaces for short-term experience of CoStrict's main `AGENT` and `CODE REVIEW` features.
 
 | Feature | Self-deployed (Models Meet Requirements) | Official CoStrict Release | Time-limited Interface |
 |---------|------------------------------------------|---------------------------|------------------------|
@@ -95,7 +95,7 @@ https://modelscope.cn/models/iic/gte-reranker-modernbert-base
 | AGENT(Strict) | ✅ Full functionality | ✅ Full functionality | ✅ Time-limited experience (Missing Codebase) |
 | CODE REVIEW | ✅ Full functionality | ✅ Full functionality | ✅ Time-limited experience |
 | Code Completion | ✅ Full functionality | ✅ Full functionality | ❌ Not supported |
-| Public Access | ✅ No public access required | ❌ Requires public access | ❌ Requires public access |
+| CoStrict Online Interface Access | ✅ No need to access CoStrict online interface | ❌ Requires access to CoStrict online interface | ❌ Requires access to CoStrict online interface |
 
 
 ### Self-deployed Backend Service Instance Environment
