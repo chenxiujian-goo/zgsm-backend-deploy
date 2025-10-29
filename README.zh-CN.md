@@ -82,6 +82,21 @@ https://modelscope.cn/models/iic/gte-reranker-modernbert-base
 
 - **rerank模型**：`0.5 * H20` 或 `0.5 * RTX4090`
 
+**试用提醒**：
+
+- 若有资源，为了体验完整的功能，请确保 **所有模型部署时满足上述要求**。
+- 若无资源，我们可以提供两种方式：
+  - 直接使用我们正式发布的CoStrict，无需额外部署，体验CoStrict所有功能。
+  - 由我们提供 **限时** 的`对话`和`code review`模型接口，用于短期体验CoStrict主要的`AGNET`和`CODE REVIEW`功能。
+
+| 功能 | 自部署（模型符合要求） | 正式发布CoStrict | 使用限时接口 |
+|------|------------|--------------|--------------|
+| AGENT（Vibe） | ✅ 完整功能 | ✅ 完整功能 | ✅ 限时体验（缺少Codebase） |
+| AGENT（Strict） | ✅ 完整功能 | ✅ 完整功能 | ✅ 限时体验（缺少Codebase） |
+| CODE REVIEW | ✅ 完整功能 | ✅ 完整功能 | ✅ 限时体验 |
+| 代码补全 | ✅ 完整功能 | ✅ 完整功能 | ❌ 不支持 |
+| 公网访问 | ✅ 无需公网访问 | ❌ 要求公网访问 | ❌ 要求公网访问 |
+
 
 ### 自部署后端服务实例环境
 
@@ -105,9 +120,24 @@ https://modelscope.cn/models/iic/gte-reranker-modernbert-base
 
 ### 1. 获取部署代码
 
+**方式一：通过 Git 克隆**
+
 ```bash
 git clone https://github.com/zgsm-ai/zgsm-backend-deploy.git
 cd zgsm-backend-deploy
+```
+
+**方式二：通过下载 ZIP 包**
+
+```bash
+# 下载最新版本分支的 ZIP 包
+wget https://github.com/zgsm-ai/zgsm-backend-deploy/archive/refs/heads/v4.zip -O zgsm-backend-deploy-4.zip
+
+# 解压 ZIP 包
+unzip zgsm-backend-deploy-4.zip
+
+# 进入解压后的目录（GitHub默认解压目录名为 仓库名-分支名）
+cd zgsm-backend-deploy-4
 ```
 
 ### 2. 环境配置

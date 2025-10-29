@@ -82,6 +82,21 @@ https://modelscope.cn/models/iic/gte-reranker-modernbert-base
 
 - **Rerank Model**: `0.5 * H20` or `0.5 * RTX4090`
 
+**Trial Reminder**:
+
+- If you have resources, to try the complete functionality, please ensure **all models meet the above requirements when deployed**.
+- If you don't have resources, we can provide two options:
+  - Use our officially released CoStrict directly without additional deployment to experience all CoStrict features.
+  - We provide **time-limited** `conversation` and `code review` model interfaces for short-term experience of CoStrict's main `AGENT` and `CODE REVIEW` features.
+
+| Feature | Self-deployed (Models Meet Requirements) | Official CoStrict Release | Time-limited Interface |
+|---------|------------------------------------------|---------------------------|------------------------|
+| AGENT(Vibe) | ✅ Full functionality | ✅ Full functionality | ✅ Time-limited experience (Missing Codebase) |
+| AGENT(Strict) | ✅ Full functionality | ✅ Full functionality | ✅ Time-limited experience (Missing Codebase) |
+| CODE REVIEW | ✅ Full functionality | ✅ Full functionality | ✅ Time-limited experience |
+| Code Completion | ✅ Full functionality | ✅ Full functionality | ❌ Not supported |
+| Public Access | ✅ No public access required | ❌ Requires public access | ❌ Requires public access |
+
 
 ### Self-deployed Backend Service Instance Environment
 
@@ -104,9 +119,24 @@ Before starting the deployment, please **simultaneously open and view the [Deplo
 
 ### 1. Get Deployment Code
 
+**Method 1: Git Clone**
+
 ```bash
 git clone https://github.com/zgsm-ai/zgsm-backend-deploy.git
 cd zgsm-backend-deploy
+```
+
+**Method 2: Download ZIP Package**
+
+```bash
+# Download the latest version branch ZIP package
+wget https://github.com/zgsm-ai/zgsm-backend-deploy/archive/refs/heads/v4.zip -O zgsm-backend-deploy-4.zip
+
+# Extract the ZIP package
+unzip zgsm-backend-deploy-4.zip
+
+# Enter the extracted directory (GitHub default extraction directory name is repository-name-branch-name)
+cd zgsm-backend-deploy-4
 ```
 
 ### 2. Environment Configuration
