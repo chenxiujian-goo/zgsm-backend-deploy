@@ -19,7 +19,7 @@
 #### 1.1.2 模型列表（推荐）
 
 - **对话模型**：`GLM-4.5-FP8`、`GLM-4.5-106B-A12B-FP8`
-- **code review模型**：`Qwen2.5-Coder-32B-Instruct`
+- **code review模型**：`Qwen2.5-Coder-32B-Instruct`、`Qwen3.0-Coder-30B-A3B-Instruct`
 - **补全模型**：`DeepSeek-Coder-V2-Lite-Base`
 - **embedding模型**：`gte-modernbert-baseRAG/Embedding`
 - **rerank模型**：`gte-reranker-modernbert-baseRAG/Rerank`

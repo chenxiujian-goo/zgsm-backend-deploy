@@ -17,7 +17,7 @@ Used for checking and verifying the preparation before deployment, configuration
 #### 1.1.2 Model List (Recommended)
 
 - **Chat Model**: `GLM-4.5-FP8`, `GLM-4.5-106B-A12B-FP8`
-- **Code Review Model**: `Qwen2.5-Coder-32B-Instruct`
+- **Code Review Model**: `Qwen2.5-Coder-32B-Instruct`, `Qwen3.0-Coder-30B-A3B-Instruct`
 - **Completion Model**: `DeepSeek-Coder-V2-Lite-Base`
 - **Embedding Model**: `gte-modernbert-baseRAG/Embedding`
 - **Rerank Model**: `gte-reranker-modernbert-baseRAG/Rerank`

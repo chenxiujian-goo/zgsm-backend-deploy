@@ -284,14 +284,14 @@ Detailed configuration guide: [Casdoor Configuration Document](./docs/casdoor.zh
 
 ### CoStrict Plugin Configuration
 
-1. Install the Costrict VSCode extension
+1. Install the CoStrict VSCode extension
 2. Open the "Provider" page in the extension settings
-3. Select the API provider as "Costrict"
+3. Select the API provider as "CoStrict"
 4. Configure the backend service address:
    ```
-   Costrict Base URL: {COSTRICT_BACKEND_BASEURL}
+   CoStrict Base URL: {COSTRICT_BACKEND_BASEURL}
    ```
-5. Click "Login Costrict" to complete authentication
+5. Click "Login CoStrict" to complete authentication
 
 Detailed installation guide: [CoStrict Download and Installation Documentation](https://costrict.ai/download) (includes `VSCode` and `JetBrains` IDE)
 
