@@ -38,11 +38,11 @@
 
 - [ ] **模型接口**
   
-  - [ ] **对话模型**: `/v1/chat/completions` 接口
-  - [ ] **code review模型**: `/v1/chat/completions` 接口
-  - [ ] **补全模型**: `/v1/completions` 接口
-  - [ ] **embedding模型**: `/v1/embeddings` 接口
-  - [ ] **rerank模型**: `/v1/embeddings` 接口
+  - [ ] **对话模型**: `{CHAT_BASEURL}/v1/chat/completions` 接口
+  - [ ] **code review模型**: `{CODEREVIEW_BASEURL}/v1/chat/completions` 接口
+  - [ ] **补全模型**: `{COMPLETION_BASEURL}` 接口
+  - [ ] **embedding模型**: `{EMBEDDER_BASEURL}` 接口
+  - [ ] **rerank模型**: `{RERANKER_BASEURL}` 接口
 
 
 
@@ -107,7 +107,7 @@
 
 项目地址：https://github.com/zgsm-ai/zgsm-backend-deploy
 
-项目存放路径：`/opt/zgsm-backend-deploy`
+项目存放路径：`/opt/zgsm-backend-deploy` (假设目录为`/opt/zgsm-backend-deploy`, 根据实际项目存放路径修改，下同)
 
 
 
@@ -189,7 +189,8 @@
 - [ ] **镜像检查**
 
   ```bash
-  bash /opt/zgsm-backend-deploy/docker-download-images.sh
+  cd /opt/zgsm-backend-deploy
+  bash docker-download-images.sh
   ```
 
 
@@ -291,9 +292,8 @@ apisix网关服务探测接口: http://{COSTRICT_BACKEND}:{PORT_APISIX_ENTRY}/he
 
 #### 3.2.3 CodeReview
 
+- 代码块
 - 文件
-- 目录
-- 项目
 
 
 
@@ -359,5 +359,6 @@ apisix网关服务探测接口: http://{COSTRICT_BACKEND}:{PORT_APISIX_ENTRY}/he
 - [ ] **服务日志检查**
 
   ```bash
+  # 服务：chat-rag,issue-manager,review-manager,review-checker,code-completion,codebase-embedder
   docker-compose logs [service_name]
   ```

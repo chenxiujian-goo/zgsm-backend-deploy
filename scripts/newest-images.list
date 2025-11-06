@@ -1,5 +1,5 @@
 IMAGE_APISIX=apache/apisix:3.9.1-debian
-IMAGE_ETCD=bitnami/etcd:3.5.14
+IMAGE_ETCD=zgsm/etcd:3.5.14
 IMAGE_REDIS=redis:7.2.4
 IMAGE_POSTGRES=postgres:15-alpine
 IMAGE_WEAVIATE=semitechnologies/weaviate:1.31.0
@@ -17,7 +17,6 @@ IMAGE_REVIEW_CHECKER=zgsm/review-checker:1.1.6
 IMAGE_REVIEW_MANAGER=zgsm/review-manager:1.1.6
 IMAGE_CREDIT_MANAGER=zgsm/credit-manager:v1.1.6
 IMAGE_QUOTA_MANAGER=zgsm/quota-manager:1.0.20
-IMAGE_CHAT_SERVER=zgsm/chat-server:1.2.0
 IMAGE_COTUN=zgsm/cotun:v1.2.16
 IMAGE_CODEBASE_QUERIER=zgsm/codebase-querier:v0.1.7
 IMAGE_CODEBASE_EMBEDDER=zgsm/codebase-embedder:v0.2.6
