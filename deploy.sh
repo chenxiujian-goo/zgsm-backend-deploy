@@ -58,14 +58,14 @@ wait_for_apisix_ready() {
 validate_environment() {
     local required_files=(
         "configure.sh"
-        "chatgpt/custom.yml.tpl"
+        # "chatgpt/custom.yml.tpl"
         "tpl-resolve.sh"
         "docker-download-images.sh"
         "db-initdb.sh"
         "docker-compose.yml.tpl"
         "apisix-ai-gateway.sh"
         "apisix-casdoor.sh"
-        "apisix-chatgpt.sh"
+        #"apisix-chatgpt.sh"
         "apisix-chatrag.sh"
         "apisix-codereview.sh"
         "apisix-completion-v2.sh"
@@ -212,7 +212,7 @@ main() {
     local apisix_scripts=(
         "apisix-ai-gateway.sh"
         "apisix-casdoor.sh"
-        "apisix-chatgpt.sh"
+        #"apisix-chatgpt.sh"
         "apisix-chatrag.sh"
         "apisix-codereview.sh"
         "apisix-completion-v2.sh"

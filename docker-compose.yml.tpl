@@ -13,7 +13,7 @@ services:
     ports:
       - "{{PORT_APISIX_API}}:9180/tcp"
       - "{{PORT_APISIX_ENTRY}}:9080/tcp"
-      - "{{PORT_APISIX_PROMETHEUS}}:9091/tcp"
+    #  - "{{PORT_APISIX_PROMETHEUS}}:9091/tcp"
     networks:
       - shenma
 
@@ -88,8 +88,8 @@ services:
     volumes:
       - ./portal/data:/var/www
       - ./portal/nginx.conf:/etc/nginx/nginx.conf
-    ports:
-      - "{{PORT_PORTAL}}:80/tcp"
+    #ports:
+    #  - "{{PORT_PORTAL}}:80/tcp"
     networks:
       - shenma
 
@@ -97,8 +97,8 @@ services:
     image: {{IMAGE_CHATRAG}}
     command: ["/app/chat-rag", "-f", "/app/etc/chat-api.yaml"]
     restart: always
-    ports:
-      - "{{PORT_CHAT_RAG}}:8888"
+    #ports:
+    #  - "{{PORT_CHAT_RAG}}:8888"
     volumes:
       - ./chat-rag/logs:/data/logs
       - ./chat-rag/chat-api.yaml:/app/etc/chat-api.yaml:ro
@@ -111,8 +111,8 @@ services:
   review-manager:
     image: {{IMAGE_REVIEW_MANAGER}}
     restart: always
-    ports:
-      - "{{PORT_REVIEW_MANAGER}}:8080"
+    #ports:
+    #  - "{{PORT_REVIEW_MANAGER}}:8080"
     depends_on:
       - postgres
       - redis
@@ -155,8 +155,8 @@ services:
   issue-manager:
     image: {{IMAGE_ISSUE_MANAGER}}
     restart: always
-    ports:
-      - "{{PORT_ISSUE_MANAGER}}:8080"
+    #ports:
+    #  - "{{PORT_ISSUE_MANAGER}}:8080"
     depends_on:
       - postgres
     environment:
@@ -174,8 +174,8 @@ services:
   review-checker:
     image: {{IMAGE_REVIEW_CHECKER}}
     restart: always
-    ports:
-      - "{{PORT_REVIEW_CHECKER}}:8080"
+    #ports:
+    #  - "{{PORT_REVIEW_CHECKER}}:8080"
     depends_on:
       - postgres
       - redis
@@ -198,8 +198,8 @@ services:
     image: {{IMAGE_CREDIT_MANAGER}}
     command: ["nginx", "-g", "daemon off;"]
     restart: always
-    ports:
-      - "{{PORT_CREDIT_MANAGER}}:80"
+    #ports:
+    #  - "{{PORT_CREDIT_MANAGER}}:80"
     volumes:
       - ./credit-manager/config:/config
     networks:
@@ -208,8 +208,8 @@ services:
   oidc-auth:
     image: {{IMAGE_OIDC_AUTH}}
     restart: always
-    ports:
-      - "{{PORT_OIDC_AUTH}}:8080"
+    #ports:
+    #  - "{{PORT_OIDC_AUTH}}:8080"
     environment:
       SERVER_BASEURL: "{{COSTRICT_BACKEND_BASEURL}}"
       PROVIDERS_CASDOOR_CLIENTID: {{OIDC_AUTH_CLIENT_ID}}
@@ -240,8 +240,8 @@ services:
     image: {{IMAGE_QUOTA_MANAGER}}
     command: ["/app/quota-manager", "-c", "/app/app-conf.yml"]
     restart: always
-    ports:
-      - "{{PORT_QUOTA_MANAGER}}:8080"
+    #ports:
+    #  - "{{PORT_QUOTA_MANAGER}}:8080"
     environment:
       TZ: Asia/Shanghai
       INDEX_NODE: "0"
@@ -254,8 +254,8 @@ services:
   code-completion:
     image: {{IMAGE_CODE_COMPLETION}}
     restart: always
-    ports:
-      - "{{PORT_COMPLETION}}:5000/tcp"
+    #ports:
+    #  - "{{PORT_COMPLETION}}:5000/tcp"
     environment:
       TZ: Asia/Shanghai
       THRESHOLD_SCORE: 0.3
@@ -296,8 +296,8 @@ services:
     image: {{IMAGE_CODEBASE_QUERIER}}
     restart: always
     command: ["/app/server", "-f", "/app/conf/conf.yaml"]
-    ports:
-      - "{{PORT_CODEBASE_QUERIER}}:8888"
+    #ports:
+    #  - "{{PORT_CODEBASE_QUERIER}}:8888"
     environment:
       - TZ=Asia/Shanghai
     volumes:
@@ -324,8 +324,8 @@ services:
     image: {{IMAGE_CODEBASE_EMBEDDER}}
     restart: always
     command: ["/app/server", "-f", "/app/conf/conf.yaml"]
-    ports:
-      - "{{PORT_CODEBASE_EMBEDDER}}:8888"
+    #ports:
+    #  - "{{PORT_CODEBASE_EMBEDDER}}:8888"
     environment:
       - TZ=Asia/Shanghai
       - INDEX_NODE=1
@@ -359,9 +359,9 @@ services:
       TZ: "Asia/Shanghai"
     volumes:
       - ./cotun/users.json:/cotun/users.json
-    ports:
-      - "{{PORT_COTUN}}:8080/tcp"
-      - "{{PORT_COTUN2}}:7890/tcp"
+    #ports:
+    #  - "{{PORT_COTUN}}:8080/tcp"
+    #  - "{{PORT_COTUN2}}:7890/tcp"
     networks:
       - shenma
 
@@ -382,7 +382,7 @@ services:
     image: {{IMAGE_HIGRESS}}
     restart: always
     ports:
-      - "{{PORT_AI_GATEWAY}}:8080"
+    #  - "{{PORT_AI_GATEWAY}}:8080"
       - "{{PORT_HIGRESS_CONTROL}}:8001"
     environment:
       MODE: full
