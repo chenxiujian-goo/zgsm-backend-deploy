@@ -183,6 +183,7 @@ main() {
     local sub_scripts=(
         "docker-download-images.sh"
         "tpl-resolve.sh"
+        "add-exec-permission.sh"
         "db-initdb.sh"
     )
     for script in "${sub_scripts[@]}"; do

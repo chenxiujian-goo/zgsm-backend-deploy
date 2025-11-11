@@ -34,7 +34,7 @@ deployment:
         role: viewer
   etcd:
     host:                           # it's possible to define multiple etcd hosts addresses of the same etcd cluster.
-      - "http://etcd:{{PORT_ETCD}}"          # multiple etcd address
+      - "http://etcd:2379"          # multiple etcd address
     prefix: "/apisix"               # apisix configurations prefix
     timeout: 30                     # 30 seconds
 plugin_attr:

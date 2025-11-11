@@ -37,8 +37,9 @@ for sql_file in postgres/scripts/*create*.sql; do
     # 执行SQL文件的命令，使用提取的数据库名
     docker exec -i "${DEPLOY}-postgres-1" /usr/local/bin/psql -U $POSTGRES_USER -d $db -f "/scripts/$filename"
 
-    # 执行完成，等待2s
-    sleep 2
+    # 执行完成，等待5s
+    echo "执行表创建SQL文件: $filename 完成, 等待5秒..."
+    sleep 5
 done
 
 # 然后执行所有修改表的SQL文件（alter）
@@ -57,8 +58,9 @@ for sql_file in postgres/scripts/*alter*.sql; do
     # 执行SQL文件的命令，使用提取的数据库名
     docker exec -i "${DEPLOY}-postgres-1" /usr/local/bin/psql -U $POSTGRES_USER -d $db -f "/scripts/$filename"
 
-    # 执行完成，等待2s
-    sleep 2
+    # 执行完成，等待5s
+    echo "执行表修改SQL文件: $filename 完成, 等待5秒..."
+    sleep 5
 done
 
 # 最后执行所有插入数据的SQL文件（insert）
@@ -77,8 +79,9 @@ for sql_file in postgres/scripts/*insert*.sql; do
     # 执行SQL文件的命令，使用提取的数据库名
     docker exec -i "${DEPLOY}-postgres-1" /usr/local/bin/psql -U $POSTGRES_USER -d $db -f "/scripts/$filename"
 
-    # 执行完成，等待2s
-    sleep 2
+    # 执行完成，等待5s
+    echo "执行数据插入SQL文件: $filename 完成, 等待5秒..."
+    sleep 5
 done
 
 SQL="SELECT datname AS database_name FROM pg_database ORDER BY datname;"

@@ -132,7 +132,7 @@ for image in "${images[@]}"; do
         
         echo "  找到容器: $container_name ($container_id) - 状态: $container_status"
         
-        # 如果容器正在运行，先停止它
+        # 如果容器正在运行或重启中，先停止它
         if [[ "$container_status" == "Up" ]]; then
             echo "    正在停止容器..."
             if docker stop "$container_id" >/dev/null 2>&1; then
@@ -140,6 +140,14 @@ for image in "${images[@]}"; do
                 stopped_containers=$((stopped_containers + 1))
             else
                 echo "    警告：停止容器失败"
+            fi
+        elif [[ "$container_status" == "Restarting" ]]; then
+            echo "    容器正在重启中，强制停止容器..."
+            if docker kill "$container_id" >/dev/null 2>&1; then
+                echo "    容器已强制停止"
+                stopped_containers=$((stopped_containers + 1))
+            else
+                echo "    警告：强制停止容器失败"
             fi
         fi
         

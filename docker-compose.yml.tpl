@@ -27,8 +27,8 @@ services:
       TZ: "Asia/Shanghai"
       ETCD_ENABLE_V2: "true"
       ALLOW_NONE_AUTHENTICATION: "yes"
-      ETCD_ADVERTISE_CLIENT_URLS: "http://127.0.0.1:{{PORT_ETCD}}"
-      ETCD_LISTEN_CLIENT_URLS: "http://0.0.0.0:{{PORT_ETCD}}"
+      ETCD_ADVERTISE_CLIENT_URLS: "http://127.0.0.1:2379"
+      ETCD_LISTEN_CLIENT_URLS: "http://0.0.0.0:2379"
     ports:
       - "{{PORT_ETCD}}:2379/tcp"
     networks:
@@ -104,6 +104,7 @@ services:
       - ./chat-rag/chat-api.yaml:/app/etc/chat-api.yaml:ro
       - ./chat-rag/rules.yaml:/app/etc/rules.yaml:ro
     depends_on:
+      - higress
       - codebase-querier
     networks:
       - shenma
@@ -116,6 +117,8 @@ services:
     depends_on:
       - postgres
       - redis
+      - issue-manager
+      - codebase-querier
     environment:
       DATABASE_HOST: postgres
       DATABASE_PORT: 5432
@@ -179,6 +182,8 @@ services:
     depends_on:
       - postgres
       - redis
+      - chat-rag
+      - codebase-querier
     environment:
       DATABASE_HOST: postgres
       DATABASE_PORT: 5432
@@ -210,6 +215,8 @@ services:
     restart: always
     #ports:
     #  - "{{PORT_OIDC_AUTH}}:8080"
+    depends_on:
+      - postgres
     environment:
       SERVER_BASEURL: "{{COSTRICT_BACKEND_BASEURL}}"
       PROVIDERS_CASDOOR_CLIENTID: {{OIDC_AUTH_CLIENT_ID}}
@@ -242,6 +249,9 @@ services:
     restart: always
     #ports:
     #  - "{{PORT_QUOTA_MANAGER}}:8080"
+    depends_on:
+      - postgres
+      - higress
     environment:
       TZ: Asia/Shanghai
       INDEX_NODE: "0"
@@ -289,6 +299,7 @@ services:
       OPENAI_MODEL_AUTHORIZATION: "Bearer {{COMPLETION_APIKEY}}"
     depends_on:
       - redis
+      - codebase-querier
     networks:
       - shenma
 
@@ -298,6 +309,8 @@ services:
     command: ["/app/server", "-f", "/app/conf/conf.yaml"]
     #ports:
     #  - "{{PORT_CODEBASE_QUERIER}}:8888"
+    depends_on:
+      - cotun
     environment:
       - TZ=Asia/Shanghai
     volumes:
@@ -350,6 +363,9 @@ services:
       start_period: 15s
     depends_on:
       - codebase-querier
+      - postgres
+      - redis
+      - weaviate
 
   cotun:
     image: {{IMAGE_COTUN}}
