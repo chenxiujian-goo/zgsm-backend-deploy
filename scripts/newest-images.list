@@ -16,7 +16,6 @@ IMAGE_ISSUE_MANAGER=zgsm/issue-manager:1.1.6
 IMAGE_REVIEW_CHECKER=zgsm/review-checker:1.1.6
 IMAGE_REVIEW_MANAGER=zgsm/review-manager:1.1.6
 IMAGE_CREDIT_MANAGER=zgsm/credit-manager:v1.1.6
-IMAGE_QUOTA_MANAGER=zgsm/quota-manager:1.0.20
 IMAGE_COTUN=zgsm/cotun:v1.2.16
 IMAGE_CODEBASE_QUERIER=zgsm/codebase-querier:v0.1.7
 IMAGE_CODEBASE_EMBEDDER=zgsm/codebase-embedder:v0.2.6

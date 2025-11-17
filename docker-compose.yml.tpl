@@ -243,24 +243,6 @@ services:
     networks:
       - shenma
 
-  quota-manager:
-    image: {{IMAGE_QUOTA_MANAGER}}
-    command: ["/app/quota-manager", "-c", "/app/app-conf.yml"]
-    restart: always
-    #ports:
-    #  - "{{PORT_QUOTA_MANAGER}}:8080"
-    depends_on:
-      - postgres
-      - higress
-    environment:
-      TZ: Asia/Shanghai
-      INDEX_NODE: "0"
-    volumes:
-      - ./quota-manager/app-conf.yml:/app/app-conf.yml
-      - ./quota-manager/logs:/app/logs
-    networks:
-      - shenma
-
   code-completion:
     image: {{IMAGE_CODE_COMPLETION}}
     restart: always
