@@ -220,6 +220,25 @@ docker rm codebase-embedder
 docker-compose up -d
 ```
 
+### Issue 4: Conversation model updated in higress, but CoStrict plugin still shows old model list
+
+**Cause Analysis 1**:
+
+Possible failure to access backend service due to network or proxy issues
+
+**Solution**:
+
+Try accessing `http://{COSTRICT_BACKEND}:{PORT_APISIX_ENTRY}/ai-gateway/api/v1/models` in a browser to see if you can get the model list
+
+**Cause Analysis 2**:
+
+Due to configuration issues in `higress`, some plugins failed to start successfully, causing the configuration to not take effect
+
+**Solution**:
+
+1. Connect to the backend deployment server and enter the `higress` container using docker command
+2. Navigate to the `/var/log/higress` directory and check the `gateway.log` content
+
 ---
 
 ## 7. Conversation Related Errors

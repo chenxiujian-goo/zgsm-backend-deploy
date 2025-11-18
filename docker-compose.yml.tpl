@@ -104,6 +104,7 @@ services:
       - ./chat-rag/chat-api.yaml:/app/etc/chat-api.yaml:ro
       - ./chat-rag/rules.yaml:/app/etc/rules.yaml:ro
     depends_on:
+      - redis
       - higress
       - codebase-querier
     networks:
@@ -391,6 +392,8 @@ services:
       CONSOLE_PORT: 8001
     volumes:
       - ./higress/data:/data
+    depends_on:
+      - portal
     networks:
       - shenma
 

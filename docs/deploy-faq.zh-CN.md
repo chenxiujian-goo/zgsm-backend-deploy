@@ -170,7 +170,7 @@ API请求失败
 
 **处理方法**：
 
-1. 访问 `higress`页面，到以下三个页面查看并配置：
+1. 访问 `higress` 页面，到以下三个页面查看并配置：
    - **AI网关管理->AI服务提供者管理**：配置模型访问信息
    - **AI网关管理->AI路由管理**：配置模型路由信息
    - **插件配置->AI配额管理**：配置 `CoStrict` 插件可选的模型信息
@@ -219,6 +219,25 @@ docker rm codebase-embedder
 # 在部署项目目录下执行命令
 docker-compose up -d
 ```
+
+### 问题4：higress中更新了对话模型列表，但CoStrict插件刷新模型列表还是旧的
+
+**原因分析1**：
+
+可能由于网络或代理问题，导致访问后端服务失败
+
+**处理方法**：
+
+使用浏览器访问 `http://{COSTRICT_BACKEND}:{PORT_APISIX_ENTRY}/ai-gateway/api/v1/models` 能否获取到模型列表
+
+**原因分析2**：
+
+可能由于 `higress` 中的配置存在问题，使得 `higress` 部分插件没有启动成功，导致配置没有生效
+
+**处理方法**：
+
+1. 连接到后端部署服务器上, docker 命令进入 `higress` 容器内
+2. cd到 `/var/log/higress` 目录下， 查看 `gateway.log` 日志内容
 
 ---
 
