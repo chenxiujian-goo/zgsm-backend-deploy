@@ -30,8 +30,8 @@ for sql_file in postgres/scripts/*create*.sql; do
     filename=$(basename "$sql_file")
     # 去掉.sql后缀得到数据库名前缀
     db=$(basename "$sql_file" .sql)
-    # 从create文件名中提取实际数据库名（如casdoor-create.sql -> casdoor）
-    db=${db%-create}
+    # 从create文件名中提取实际数据库名（处理如casdoor-create1.sql -> casdoor的情况）
+    db=$(echo "$db" | sed -E 's/-create[0-9]*$//')
     echo "正在执行表创建SQL文件: $filename，目标数据库: $db"
     
     # 执行SQL文件的命令，使用提取的数据库名
@@ -51,8 +51,8 @@ for sql_file in postgres/scripts/*alter*.sql; do
     filename=$(basename "$sql_file")
     # 去掉.sql后缀得到数据库名前缀
     db=$(basename "$sql_file" .sql)
-    # 从alter文件名中提取实际数据库名（如casdoor-alter.sql -> casdoor）
-    db=${db%-alter}
+    # 从alter文件名中提取实际数据库名（处理如casdoor-alter1.sql -> casdoor的情况）
+    db=$(echo "$db" | sed -E 's/-alter[0-9]*$//')
     echo "正在执行表修改SQL文件: $filename，目标数据库: $db"
     
     # 执行SQL文件的命令，使用提取的数据库名
@@ -72,8 +72,8 @@ for sql_file in postgres/scripts/*insert*.sql; do
     filename=$(basename "$sql_file")
     # 去掉.sql后缀得到数据库名前缀
     db=$(basename "$sql_file" .sql)
-    # 从insert文件名中提取实际数据库名（如casdoor-insert.sql -> casdoor）
-    db=${db%-insert}
+    # 从insert文件名中提取实际数据库名（处理如casdoor-insert1.sql -> casdoor的情况）
+    db=$(echo "$db" | sed -E 's/-insert[0-9]*$//')
     echo "正在执行数据插入SQL文件: $filename，目标数据库: $db"
     
     # 执行SQL文件的命令，使用提取的数据库名
