@@ -10,7 +10,7 @@ redis:
   port: 6379
   db: 2
 chat_rag:
-  model: "{{CODEREVIEW_MODEL}}"
+  model: "{{CHAT_DEFAULT_MODEL}}"
 context_types:
   allow_skip_context: true
 check_config:
