@@ -251,42 +251,6 @@ services:
     networks:
       - shenma
 
-  chatgpt:
-    image: {{IMAGE_CHAT_SERVER}}
-    command: ["/sbin/entrypoint.sh", "app:start"]
-    restart: always
-    volumes:
-      - ./chatgpt/server:/server
-      - ./chatgpt/supervisor:/var/log/supervisor
-      - ./chatgpt/logs:/server/logs
-      - ./chatgpt/custom.yml:/custom.yml
-    ports:
-      - "{{PORT_CHATGPT_API}}:5000/tcp"
-      - "{{PORT_CHATGPT_WS}}:8765/tcp"
-      - "5555:5555/tcp"
-    environment:
-      TZ: Asia/Shanghai
-      CACHE_DB: chatgpt
-      REDIS_URL: redis://redis:6379/0
-      SERVE_THREADS: 200
-      SERVE_CONNECTION_LIMIT: 512
-      PG_URL: postgres:5432
-      DB_NAME: chatgpt
-      DATABASE_URI: postgresext+pool://{{POSTGRES_USER}}:{{PASSWORD_POSTGRES}}@postgres/chatgpt
-      ES_SERVER: http://es:9200
-      ES_PASSWORD: {{PASSWORD_ELASTIC}}
-      CUSTOM_CONFIG_FILE: /custom.yml
-      DEFAULT_MODEL_NAME: {{CHAT_DEFAULT_MODEL}}
-      GEVENT_SUPPORT: True
-      NO_COLOR: 1
-      DEPLOYMENT_TYPE: all
-    depends_on:
-      - redis
-      - postgres
-      - es
-    networks:
-      - shenma
-
   code-completion:
     image: {{IMAGE_CODE_COMPLETION}}
     restart: always
