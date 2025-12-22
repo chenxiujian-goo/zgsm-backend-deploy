@@ -74,7 +74,7 @@ validate_environment() {
         "apisix-grafana.sh"
         "apisix-issue.sh"
         "apisix-oidc-auth.sh"
-        "apisix-quota-manager.sh"
+        #"apisix-quota-manager.sh"
     )
 
     [[ -d "$BASE_DIR" ]] || {
@@ -220,7 +220,7 @@ main() {
         "apisix-grafana.sh"
         "apisix-issue.sh"
         "apisix-oidc-auth.sh"
-        "apisix-quota-manager.sh"
+        #"apisix-quota-manager.sh"
     )
     for script in "${apisix_scripts[@]}"; do
         log "INFO" "Executing APISIX configuration: $script"

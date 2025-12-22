@@ -8,23 +8,21 @@
 
 #### 1.1.1 模型GPU资源（推荐）
 
-- **对话模型**：4 * H20 或 4 * RTX4090
-- **code review模型**：2 * H20 或 2 * RTX4090
-- **补全模型**： 1 * H20 或 1 * RTX4090
-- **embedding模型**：0.5 * H20 或 * RTX4090
-- **rerank模型**：0.5 * H20 或 0.5 * RTX4090
+- **对话模型**：`4 * H20` 或 `4 * RTX4090`
+- **补全模型**：`1 * H20` 或 `1 * RTX4090`
+- **embedding模型**：`0.5 * H20` 或 `0.5 * RTX4090`
+- **rerank模型**：`0.5 * H20` 或 `0.5 * RTX4090`
 
 
 
 #### 1.1.2 模型列表（推荐）
 
-- **对话模型**： `GLM-4.5-FP8`、`GLM-4.5-106B-A12B-FP8`
-- **code review模型**：`Qwen2.5-Coder-32B-Instruct`
-- **补全模型**：`DeepSeek-Coder-V2-Lite-Base`
+- **对话模型**：`GLM-4.6-FP8`
+- **补全模型**：`Qwen3-4B-Instruct-2507`
 - **embedding模型**：`gte-modernbert-baseRAG/Embedding`
 - **rerank模型**：`gte-reranker-modernbert-baseRAG/Rerank`
 
-**注意**：确认模型的命令名称、APIKEY和上下文大小等信息是否准确并记录
+**注意**：确认模型的`名称`、`APIKEY`和`上下文长度`等信息是否准确并记录
 
 
 
@@ -38,11 +36,10 @@
 
 - [ ] **模型接口**
   
-  - [ ] **对话模型**: `/v1/chat/completions` 接口
-  - [ ] **code review模型**: 同对话 `/v1/chat/completions` 接口
-  - [ ] **补全模型**: `/v1/completions` 接口
-  - [ ] **embedding模型**: `/v1/embeddings` 接口
-  - [ ] **rerank模型**: `/v1/embeddings` 接口
+  - [ ] **对话模型**: `{CHAT_BASEURL}/v1/chat/completions` 接口
+  - [ ] **补全模型**: `{COMPLETION_BASEURL}` 接口
+  - [ ] **embedding模型**: `{EMBEDDER_BASEURL}` 接口
+  - [ ] **rerank模型**: `{RERANKER_BASEURL}` 接口
 
 
 
@@ -107,7 +104,7 @@
 
 项目地址：https://github.com/zgsm-ai/zgsm-backend-deploy
 
-项目存放路径：`/opt/zgsm-backend-deploy`
+项目存放路径：`/opt/zgsm-backend-deploy` (假设目录为`/opt/zgsm-backend-deploy`, 根据实际项目存放路径修改，下同)
 
 
 
@@ -117,7 +114,7 @@
 
 端口列表线上：https://github.com/zgsm-ai/zgsm-backend-deploy/blob/main/configure.sh
 
-- 端口列表：第`6~34`行
+- 端口列表：第`6~33`行
 
 
 
@@ -134,7 +131,7 @@
 - [ ] **端口检查**
 
   ```bash
-  sudo ss -tlnp | grep -E ':(9180|9080|9091|9092|9093|2382|6379|5432|5003|9081|5000|8765|5001|9090|3000|9200|8080|8001|9001|5173|9003|9004|9005|9006|9007|9008|9009|9010|9011) '
+  sudo ss -tlnp | grep -E ':(39180|39080|32382|36379|35432|35003|39090|33000|39200|38001|39009) '
   ```
 
 
@@ -189,7 +186,8 @@
 - [ ] **镜像检查**
 
   ```bash
-  bash /opt/zgsm-backend-deploy/docker-download-images.sh
+  cd /opt/zgsm-backend-deploy
+  bash docker-download-images.sh
   ```
 
 
@@ -291,9 +289,8 @@ apisix网关服务探测接口: http://{COSTRICT_BACKEND}:{PORT_APISIX_ENTRY}/he
 
 #### 3.2.3 CodeReview
 
+- 代码块
 - 文件
-- 目录
-- 项目
 
 
 
@@ -359,5 +356,6 @@ apisix网关服务探测接口: http://{COSTRICT_BACKEND}:{PORT_APISIX_ENTRY}/he
 - [ ] **服务日志检查**
 
   ```bash
+  # 服务：chat-rag,issue-manager,review-manager,review-checker,code-completion,codebase-embedder
   docker-compose logs [service_name]
   ```

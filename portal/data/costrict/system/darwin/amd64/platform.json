@@ -6,29 +6,20 @@
     "versionId": {
       "major": 1,
       "minor": 1,
-      "micro": 2
+      "micro": 3
     },
-    "appUrl": "/system/darwin/amd64/1.1.2/system-spec.json",
-    "infoUrl": "/system/darwin/amd64/1.1.2/package.json"
+    "appUrl": "/system/darwin/amd64/1.1.3/system-spec.json",
+    "infoUrl": "/system/darwin/amd64/1.1.3/package.json"
   },
   "versions": [
     {
       "versionId": {
         "major": 1,
-        "minor": 0,
-        "micro": 818
-      },
-      "appUrl": "/system/darwin/amd64/1.0.818/system-spec.json",
-      "infoUrl": "/system/darwin/amd64/1.0.818/package.json"
-    },
-    {
-      "versionId": {
-        "major": 1,
         "minor": 1,
-        "micro": 2
+        "micro": 3
       },
-      "appUrl": "/system/darwin/amd64/1.1.2/system-spec.json",
-      "infoUrl": "/system/darwin/amd64/1.1.2/package.json"
+      "appUrl": "/system/darwin/amd64/1.1.3/system-spec.json",
+      "infoUrl": "/system/darwin/amd64/1.1.3/package.json"
     }
   ]
 }
