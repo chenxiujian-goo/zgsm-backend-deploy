@@ -3,7 +3,10 @@
 *.log
 scripts/.env
 scripts/images.list
+scripts/update-images.list
+scripts/updates.list
 images
+tests
 apisix/config.yaml
 dex/config.yaml
 apisix_dashboard/conf.yaml
