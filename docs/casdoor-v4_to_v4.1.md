@@ -1,6 +1,8 @@
 # v4 casdoor to v4.1
 
-注意，这是v4版本部署后，想要使用新版本casdoor的 **有损** 升级教程，而不是从0开始部署的教程，请自行下载 zgsm/casdoor:v2.0.10 镜像的tar包并导入。
+注意，这是v4版本部署后，想要使用新版本casdoor的 **有损** 升级教程，而不是从0开始部署的教程，升级前，请自行下载 zgsm/casdoor:v2.0.10 镜像的tar包并导入到docker。
+
+升级后请不要再执行v4版本的deploy.sh,否则sql脚本的运行，可能导致异常
 
 ## 关停服务
 
@@ -14,11 +16,13 @@ docker compose down oidc-auth casdoor
 
 ## 修改数据库
 
-> <font color='red'>警告,这将会导致casdoor 数据清空</font>
+<font color='red'>警告,这将会导致casdoor 数据清空</font>
 
-> <font color='red'>警告,这将会导致casdoor 数据清空</font>
+<font color='red'>警告,这将会导致casdoor 数据清空</font>
 
-> <font color='red'>警告,这将会导致casdoor 数据清空</font>
+<font color='red'>警告,这将会导致casdoor 数据清空</font>
+
+> 请手动复制命令，一条条执行;请手动复制命令，一条条执行
 
 ```bash
 docker compose exec -it postgres /bin/bash # 注意，运行此命令后，你将进入容器。
