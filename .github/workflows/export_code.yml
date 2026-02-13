@@ -1,0 +1,74 @@
+# .github/workflows/export-code.yml
+name: Export Project Code
+
+on:
+  # 仅保留手动触发，支持选择分支
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: '要导出的分支名称'
+        required: true
+        default: 'main'
+        type: string
+
+jobs:
+  export-code:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          # 使用输入的分支
+          ref: ${{ github.event.inputs.branch }}
+          # 获取完整历史记录（可选）
+          fetch-depth: 0
+      
+      - name: Create code archive
+        run: |
+          # 创建导出目录
+          mkdir -p exported-code
+          
+          # 复制所有代码文件（排除 .git 和 node_modules 等）
+          rsync -av \
+            --exclude='.git' \
+            --exclude='node_modules' \
+            --exclude='.github' \
+            --exclude='*.log' \
+            --exclude='.env' \
+            --exclude='dist' \
+            --exclude='build' \
+            --exclude='.next' \
+            --exclude='coverage' \
+            . exported-code/
+          
+          # 创建压缩包
+          zip -r project-code-export.zip exported-code/
+          
+          # 添加元数据信息
+          echo "Export Date: $(date)" > export-info.txt
+          echo "Commit: ${{ github.sha }}" >> export-info.txt
+          echo "Branch: ${{ github.event.inputs.branch }}" >> export-info.txt
+          echo "Repository: ${{ github.repository }}" >> export-info.txt
+          echo "Triggered by: ${{ github.actor }}" >> export-info.txt
+      
+      - name: Upload code artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: project-code-export-${{ github.event.inputs.branch }}-${{ github.run_number }}
+          path: |
+            project-code-export.zip
+            export-info.txt
+          # 保留 7 天（GitHub 最大支持 90 天）
+          retention-days: 7
+          compression-level: 9  # 最大压缩
+      
+      - name: Summary
+        run: |
+          echo "## 📦 代码导出完成" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- **文件名**: project-code-export-${{ github.event.inputs.branch }}-${{ github.run_number }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **导出分支**: ${{ github.event.inputs.branch }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **保留期限**: 7 天" >> $GITHUB_STEP_SUMMARY
+          echo "- **提交**: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "- **触发者**: ${{ github.actor }}" >> $GITHUB_STEP_SUMMARY
